@@ -1,0 +1,103 @@
+p{
+	font-size: 22px;
+	padding-right: 1em;
+	padding-left: 1em;
+}
+
+a{
+	color: #cc0000;
+}
+a:hover{
+	color: #8fd8ff;
+}
+
+.logo{
+	max-width: 30em;
+	margin-bottom: 1em;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+}
+
+.nav-tabs li a{
+	font-style:italic;
+}
+.pager{
+	margin-bottom: -1em;
+}
+
+.bottom_pager{
+	margin-bottom: 3em;
+}
+
+.pager li a{
+	background-color: rgba(0,0,0,0);
+	border: none;
+}
+.pager li.next a, .pager li.previous a, .pager li a.current{
+	background-color: white;
+	border: 1px solid #ddd;
+}
+
+pre{
+	border: 0;
+	margin-right: 1em;
+	margin-left: 1em;
+}
+
+body{
+	padding-right: 2em;
+	padding-left: 2em;
+	background-color:#f6f2ec;
+	background: url("/img/redox_01.png");
+}
+
+.menu{
+	text-align:center;
+	overflow:hidden;
+	padding: 2em;
+	padding-top: 5em;
+}
+.posts{
+	height:100%; overflow-y:scroll; 
+}
+.old_post{
+	background-color: #fff;
+	box-shadow: 0px 10px 5px #888888;
+	min-height: 200px;
+	margin-bottom: 2em;
+}
+
+.post{
+	min-height: 200px;
+	margin-bottom: 2em;
+}
+/* Double-color dashed line */
+		
+hr {
+    border: 0;
+    border-bottom: 1px dashed #ccc;
+    background: #999;
+}
+.social_btns{
+	margin-top: 1em;
+}
+.links a{
+	font-size: x-large;
+}
+
+h3{
+	color:slategray;
+}
+h2{
+	color: #03304F;
+}
+
+h1{
+	color: #E80C0C;
+}
+
+.tags{
+	color: #aaa;
+}

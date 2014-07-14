@@ -1,0 +1,681 @@
+/* TypeFocus theme for Wordpress.
+ * Author: Ajay Divakaran http://www.ajaysdesk.com
+ * Released under GPL2.0.
+ * Feel free to use this in your projects without restriction. However,
+ * dont copy it as it is... make it better. Better, is always a good thing!
+ */
+
+/*
+ *CONSTANTS
+ *#f6f2ec = body-bg,
+ *#c9323a = highlighted text, and orange emphasis
+ *
+ *
+ */
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,code,del,dfn,em,img,q,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;margin:0;padding:0;}
+table{border-collapse:separate;border-spacing:0;margin-bottom:1.4em;}
+caption,th,td{text-align:left;font-weight:400;}
+blockquote:before,blockquote:after,q:before,q:after{content:"";}
+blockquote,q{quotes:;}
+a img{border:none;}
+
+
+/* Main Container
+-------------------------------------------------------------- */
+html { font-size: 62.5%; } 
+body{
+    background-color:#f6f2ec;
+    position: relative;
+}
+
+body:after {
+    content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: url('images/redox_01.png') ; 
+    opacity : 0.6;
+}
+
+#page{
+    width:95%;
+    max-width: 90rem;
+    margin:0 auto;
+    padding-top:2rem;
+	border-top:0.5rem solid #c00;	
+    
+}
+
+
+
+
+div.author-image img {margin: 1rem 0;}
+#page header#masthead{
+    width:20rem;
+    text-align: center;
+    position:fixed;
+	margin:2rem;
+	padding-top:2rem;
+    
+}
+
+#content{
+    width:66.66%;
+    float:right;
+	min-height:100rem;
+}
+
+
+footer.site-footer{
+    clear:both;
+    position:relative;
+}
+
+footer.site-footer .site-info{
+    width:70%;
+	margin:0 auto;
+}
+/* stack footer, on top of header , on top of body */
+body:after{z-index:-10;}
+header{z-index: 5;}
+footer{z-index:10;}
+
+
+/* Article (per-article)
+-------------------------------------------------------------- */
+header.page-header h1{
+	padding-top: 5rem;
+	font-size: 6rem;
+	border-bottom: 2px dotted #ccc;
+	display: inline-block;
+	padding-bottom: 3rem;
+}
+p {
+    font: 300 1.6rem  'merriweatherlight', serif;
+    line-height: 3.0rem;
+}
+
+h1 { font: 500 3.4rem  'merriweatherlight', serif;
+	text-shadow: 0 1px 0 #fff;
+	font: 300 3.5rem 'alegreyaregular', serif;
+	line-height: 4.8rem;
+}
+
+h1.entry-title a.quote-post {
+	text-decoration: none;
+	color:#333;
+	font: 300 2rem  'merriweatherlight_italic', serif;
+	line-height: 3rem;
+	text-shadow: 0 1px 0 #eee;
+    opacity: 0.9;	
+	
+}
+
+div.entry-meta  {
+    font: 500 1.8rem  'merriweatheritalic', serif;
+    line-height: 3rem;
+    opacity: 0.5;
+    letter-spacing: 0.1rem;
+}
+
+h1 a { text-decoration: none; color:#333 !important;}
+
+div.entry-meta a { text-decoration: none; color:#333 !important;}
+
+article footer.entry-meta{
+    font: 500 1.8rem 'merriweatherlight', serif;
+    padding:30px 0px;
+    display:none;
+}
+
+article nav.post-navigation{
+    margin-top:-6rem;
+}
+
+nav.navigation.post-navigation div.nav-links a{
+    font: 700 1.8rem  'merriweatherlight', serif;
+    line-height: 3.6rem;
+    text-decoration: none;
+    color: #c9323a !important;
+    font-style: italic;
+    }
+nav.navigation.post-navigation div.nav-links a:first-child{float:left;}
+nav.navigation.post-navigation div.nav-links a:last-child{float:right;}
+nav.navigation.post-navigation{
+    padding-bottom:10px;
+    border-bottom:1px solid rgba(0,0,0,.1);
+}
+
+
+/* Index page blog-section components
+-------------------------------------------------------------- */
+body.single header.entry-header h1.entry-title{
+	font-size:5rem;
+	line-height:8rem;
+	
+}
+main article{
+    border-bottom:.1rem solid #ddd ;
+    padding:3rem 0;
+    margin-bottom:6rem ;
+}
+
+.more-link{
+    text-decoration: none;
+    color: #c9323a !important;
+    font-weight: 400;
+    
+}
+
+.continue-reading {
+    text-decoration: none;
+    color: #c9323a !important;
+    font: 500 1.8rem  'merriweatherlight', serif;
+    line-height:4rem;
+    
+}
+
+article.format-quote header h1 a{
+    font-size:2.4rem;
+    letter-spacing: .05rem;
+    font-style: italic;
+}
+
+i.fa-quote-left{
+    font-size: 2.8rem;
+}
+
+.entry-content p,
+div.entry-content ul{
+    font: 500 1.6rem  'merriweatherlight', serif;
+    line-height:3rem;
+}
+
+.entry-content h2{
+    font: 500 2.8rem  'merriweatherlight', serif;
+    line-height: 4.2rem;
+    padding:30px 0px;
+}
+
+.entry-content h3{
+    font: 500 2.4rem  'merriweatherlight', serif;
+    line-height: 3.6rem;
+    padding:30px 0px;
+}
+
+.entry-content img{
+    border:5px solid rgba(0,0,0,0.1);
+    padding:0.7rem;
+    background:rgba(0,0,0,0.1);
+    border-color: rgba(0,0,0,0.2);
+    border-width:0.1rem;
+    border-style:solid;
+}
+
+/* Author, Site-title, Site-description, social, and nav, disclaimer
+-------------------------------------------------------------------- */
+.author-image{
+    display: inline-block;
+    margin:0 auto;
+	width:100%;
+}
+.author-image img {
+    border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+    /padding:0.7rem;
+    background:rgba(0,0,0,0.1);
+    border-color: rgba(0,0,0,0.2);
+    border-width:0.1rem;
+    border-style:solid;  
+    
+}
+h1.site-title a {
+    font: 500 3rem 'dancing_script_otregular';
+	color: rgba(0,0,0,0.6) !important;
+	letter-spacing: 1px;
+}
+
+h2.site-description{
+    font: 300 1.6rem  'merriweatherlight', serif;
+    width:60%;
+    margin:0 auto;
+    margin-bottom:30px;
+	display:none;
+}
+
+#site-navigation{
+	border:2px dotted #ddd;
+	border-width: 2px 0;
+	padding:2rem 0;
+	margin-top:5rem;
+}
+#menu-navbar,
+ul.nav-menu{
+    /border-top:1px solid #ccc;
+    /border-bottom:1px solid #ccc;
+    /padding:1rem 0;
+    margin: 0 auto;
+    display: inline-block;
+    
+}
+#menu-navbar li,
+ul.nav-menu li{
+    float:none;
+}
+#menu-navbar li a,
+ul.nav-menu li a{
+    font: 500 2rem  'merriweatherlight', serif;
+    padding:10px 0;
+    text-decoration: none;
+    color:#c9323a;
+	letter-spacing: 0.2px;
+}
+
+.header-social{
+    font-size:5.0em;
+    display: block;
+	clear:both;
+
+
+	
+
+}
+.header-social i{padding:3px;}
+.header-social a{text-decoration: none; color: #333; opacity:0.1;}
+.header-social a:hover{color: #c9323a; opacity:1;}
+
+#disclaimer{
+
+    1font-style: italic !important;
+    letter-spacing: 0.25px;
+    clear:both;
+    color:#999;
+    width:100%;
+    margin:0 auto;
+	text-align:right;
+    font: 200 1.4rem 'merriweatherlight_italic';
+	line-height: 2rem;
+	color: rgba(0,0,0,0.3) !important;
+	letter-spacing: 0.2px;
+	float:none;
+	clear:both;
+	display:none;
+}
+
+#disclaimer i{
+    font-size:1.4rem;
+	float:none;
+	clear:both;
+}
+
+div.menu-navbar-container{
+	overflow:hidden;
+}
+
+/* Site footer
+-------------------------------------------------------------- */
+.site-footer{
+    border-top:1px solid #ccc;
+    margin:0 auto;
+    text-align: center;
+    padding:20px;
+    font-style: italic !important;
+    font: 300 1.4rem Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    color:#777;
+    background:#444;
+}
+.site-footer a{
+    text-decoration: none;
+    color:#777;
+    text-decoration: underline;
+}
+    
+
+
+/* Widget Area
+-------------------------------------------------------------- */
+.widget{
+	margin-top:5rem;
+}
+.widget-area aside{
+    text-align: center;
+    background:rgba(0,0,0,0.025);
+    margin-bottom:40px;
+    
+}
+.widget-area aside h3{  
+    font: 700 1.8rem  'merriweatherlight', serif;
+    padding:10px;
+    text-align:center;
+    border-bottom:2px solid rgba(0,0,0,0.05);;
+}
+.widget-area aside ul{  
+    font: 300 1.4rem  'merriweatherlight', serif;
+    text-align:center;
+    list-style: none;
+    display:inline-block;
+    
+}
+.widget-area aside ul li{  
+    padding:10px;
+    color: #c9323a;
+    border-bottom:2px solid #e5e5e5;
+}
+.widget-area aside ul li:last-child{border:0;}
+
+.widget-area aside ul li a{  
+    color: #c9323a;
+    text-decoration: none;
+}
+
+.widget-area aside select{
+    margin:15px 0px;
+    font-size:1.8rem;
+}
+
+.widget-area aside form{
+    padding:15px;
+    font-size:1.8rem;
+}
+
+.widget-area input {
+    font:700 1.4rem 'merriweatherlight', serif;
+    text-align: center;
+}
+
+/* calendar widget */
+
+#wp-calendar {width: 100%; }
+#wp-calendar caption, #wp-calendar tfoot {
+    text-align: right;
+    margin: 10px 20px;
+    font: 700 1.4rem  'merriweatherlight', serif;
+    /background:rgba(0,0,0,0.1);
+}
+#wp-calendar thead {  }
+#wp-calendar thead th {
+    padding: 10px;
+    text-align: center;
+    font: 700 1.4rem  'merriweatherlight', serif;
+    opacity:0.5;
+}
+#wp-calendar tbody {
+    opacity:0.8;
+    font: 700 1.4rem  'merriweatherlight', serif;
+}
+#wp-calendar tbody td { background: #f5f5f5; border: 1px solid #fff; text-align: center; padding:8px;}
+#wp-calendar tbody td:hover { background: #fff; }
+#wp-calendar tfoot #next { text-align: right; padding:10px 20px;}
+#wp-calendar tfoot #prev { text-align: left; padding:10px 20px;}
+#wp-calendar tfoot #next a, #wp-calendar tfoot #prev a{text-decoration:none; color:#c9323a;}
+
+
+
+/* Comments
+-------------------------------------------------------------- */
+article.comment-body{
+    border:0;
+    border-left:5px solid rgba(1,1,1,0.1);
+    
+    padding:0;
+    padding-left:10px;
+    margin-bottom:3rem;
+}
+#comments h2.comments-title{
+    font: 500 1.8rem  'merriweatherlight', serif;
+    line-height: 3.6rem;
+}
+
+#comments ol{
+    list-style: none;
+}
+
+.responses-heading,
+h3#reply-title{
+    font: 700 3rem  'merriweatherlight', serif;
+    margin:7rem 0px 30px 0px;
+}
+
+footer.comment-meta{
+        font: 500 1.8rem  'merriweatherlight', serif;
+}
+footer.comment-meta img{
+    float:left;
+    margin-right:20px;
+}
+
+div.comment-content{
+    padding:10px 0px 0px 0px;
+    clear:both;
+}
+
+div.comment-author cite{
+    font-style: normal;
+    padding:5px 0px;
+    font-weight: 500;
+    font-size: 1.6rem;
+
+    
+}
+
+div.comment-metadata a{
+    font: 500 1.6rem  'merriweatherlight', serif;
+    line-height: 3rem;
+    text-decoration: none;
+    font-style: italic;
+    letter-spacing: 0.05rem;
+    color: #c9323a;
+}
+
+div.comment-content p{
+     font: 500 1.6rem  'merriweatherlight', serif;
+}
+
+article.comment-body .reply a{
+    font: 700 1.5rem  'merriweatherlight', serif;
+    text-decoration: none;
+    1font-style: italic;
+    letter-spacing: 0.05rem;
+    color: #c9323a;
+    
+}
+
+div.comment-metadata .reply{
+    display: inline-block;
+}
+
+.form-allowed-tags{
+    display:none;
+}
+
+.su-pullquote h3{
+font-size:2rem;
+color:#c00;
+font-family:merriweatherlight_italic;
+}
+
+/* Responsive display media queries */
+/* -------------------------------- */
+
+/* Tablet portrait size */
+@media screen and (min-width: 641px) and (max-width: 960px) {
+    #page{
+        width:70%;
+    }
+     
+    #page header#masthead{
+        width:100%;
+        float:none;
+        text-align:center;
+        position: relative;
+		margin:0;
+    }
+    
+    #content{
+        width:100%;
+        float:none;
+    }
+    
+    #disclaimer,{display:none;}
+    
+    header#masthead{margin:4rem 0px;}
+    
+    #menu-navbar,
+	ul.nav-menu {
+		border:0px;
+		
+	}
+    #menu-navbar li,
+	ul.nav-menu li{
+        float:left;
+        border-right:1px dotted rgba(0,0,0,0.5);
+		padding:0rem 2rem;
+
+    }
+    #menu-navbar li:last-child{border:0;}
+	ul.nav-menu li:last-child{border:0;}
+    
+	.author-image, #disclaimer, h1.menu-toggle{display: none;}
+	
+	h1.site-title a{font-size:6rem;}
+
+
+}
+
+/* Small tables (nook/kindle) */
+@media screen and (min-width: 481px ) and (max-width: 640px) {
+    #page{
+        width:85%;
+    }
+    
+    #page header#masthead{
+        width:100%;
+        float:none;
+        text-align:center;
+        position: relative;
+		margin:0;
+    }
+    
+    #content{
+        width:100%;
+        float:none;
+    }
+    
+    #disclaimer,{display:none;}
+    
+    header#masthead{margin:4rem 0px;
+	
+	}
+    
+    #menu-navbar,
+	ul.nav-menu {
+		border:0px;
+		
+	}
+    #menu-navbar li,
+	ul.nav-menu li{
+        float:left;
+        border-right:1px dotted rgba(0,0,0,0.5);
+		padding:0rem 2rem;
+    }
+    #menu-navbar li:last-child{border:0;}
+	ul.nav-menu li:last-child{border:0;}
+    
+	.author-image, #disclaimer, h1.menu-toggle{display: none;}
+	
+	h1.site-title a{font-size:6rem;}
+
+}
+
+/* Phone size */
+@media screen and (max-width: 480px ){
+    #page{
+        width:90%;
+    }
+     
+    #page header#masthead{
+        width:100%;
+        float:none;
+        text-align:center;
+        position: relative;
+		margin:0;
+    }
+    
+    #content{
+        width:100%;
+        float:none;
+    }
+    
+    #disclaimer,{display:none;}
+    
+    header#masthead{margin:4rem 0px;
+	
+	}
+    
+    #menu-navbar,
+	ul.nav-menu {
+		border:0px;
+		
+	}
+    #menu-navbar li,
+	ul.nav-menu li{
+        float:left;
+        border-right:1px dotted rgba(0,0,0,0.5);
+		padding:0rem 1rem;
+		
+    }
+	ul.nav-menu li a { font-size:1.6rem !important; }
+    #menu-navbar li:last-child{border:0;}
+	ul.nav-menu li:last-child{border:0;}
+    
+	.author-image, #disclaimer, h1.menu-toggle{display: none;}
+	
+    h1, h1 a{
+        font-size:2.6rem;
+        line-height: 3.7rem;
+    }
+
+
+    .continue-reading {
+        font: 500 1.6rem  'merriweatherlight', serif;
+        line-height:3.2rem;     
+    }
+
+    article.format-quote header h1 a{
+        font-size:2rem;
+        letter-spacing: .05rem;
+    }
+
+    i.fa-quote-left{
+        font-size: 2rem;
+    }
+
+    .entry-content h2{
+        font-size: 2rem ;
+
+    }
+    
+    .entry-content h3{
+        font-size: 2rem ;
+
+    }
+
+    #main p,
+	div.entry-content ul{
+        font-size:1.6rem;
+        line-height: 3.2rem;
+    }
+	
+		h1.site-title a{font-size:5rem;}
+
+
+}
+
+}
+
+
