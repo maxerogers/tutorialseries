@@ -11,6 +11,11 @@ a:hover{
 	color: #8fd8ff;
 }
 
+.raw_code{
+	background-color: #000;
+	color: #FFF;
+}
+
 .logo{
 	max-width: 30em;
 	margin-bottom: 1em;
