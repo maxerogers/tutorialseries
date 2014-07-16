@@ -10,3 +10,7 @@ $('a[href^="#"]').on('click', function(event) {
     }
 
 });
+
+$(function(){
+	alert(navigator.platform.toUpperCase());
+});
