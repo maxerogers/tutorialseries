@@ -274,7 +274,7 @@ puts f.bar
 </code>
 </pre>
 
-<p> Now lets add these changes and commit them. $ git commit -a -m "added Foo class" </p>
+<p> Now lets add these changes and commit them. <b>$ git commit -a -m "added Foo class"</b> </p>
 <p> When you run $ruby helloworld.rb you will notice it only says <b> FuzzBuzz</b></p>
 <p> However, if you type in <b>$git checkout master</b> and run <b> $ruby helloworld.rb</b> it should print out <b>Hello, I am Android5</b></p>
 
@@ -597,7 +597,7 @@ puts f.bar
 </code>
 </pre>
 
-<p> Now lets add these changes and commit them. $ git commit -a -m "added Foo class" </p>
+<p> Now lets add these changes and commit them. <b>$ git commit -a -m "added Foo class"</b> </p>
 <p> When you run $ruby helloworld.rb you will notice it only says <b> FuzzBuzz</b></p>
 <p> However, if you type in <b>$git checkout master</b> and run <b> $ruby helloworld.rb</b> it should print out <b>Hello, I am Android5</b></p>
 
@@ -692,7 +692,328 @@ git push origin master
 		<img src="/img/tut0_9.png" class="img-responsible img-rounded">
 		<p> Congratulations you have finished this tutorial :D</p>
 					  </div>
-					  <div class="tab-pane fade" id="windows">Windows</div>
+					  <div class="tab-pane fade" id="windows"><br>
+					  <div class="alert alert-info" role="alert">Note: This tutorial was written on Windows 7 and Git 1.8.4.msysgi.0 I appologize if you come across any compatibility issues.</div>
+					  
+					  <div class="alert alert-danger" role="alert">Warning: while it is possible to follow this tutorial on windows. Windows isn't the recommended platform for future tutorials. Windows doesn't naturally support UNIX. This difference in root architecture will cause compatibility issues and general awkward developing environment in the future. I recommend that you follow this  <a href="http://www.everydaylinuxuser.com/2013/09/install-ubuntu-linux-alongside-windows.html">tutorial</a> and install an ubuntu parition</div>
+					  
+					  	<h2> Step 1: Install Git</h2>	
+					  	<p>
+					  		First thing is that we need to install Git. Now there is a standalone version of Git for windows but we need Ruby for future tutorials so we will download <a href="https://s3.amazonaws.com/railsinstaller/Windows/railsinstaller-2.2.3.exe">RailsInstaller</a> developed by EngineYard.</p>
+
+					  		<p> Make sure that you install git and devkit </p>
+					<img style="padding: 2em;" class="img-responsive img-rounded" src="/img/tut0_win0.png"/></p>
+					<p>
+					Yours should look something like this
+					</p>
+					<p>
+					After it has finished installing, I want you to open up your new rails console. Hit windows or click on start and search for rails. You should a program called Command Prompt with Ruby and Rails
+				    </p>
+					<p> 
+					Next type the following into your terminal to double check it was successfully installed
+
+					<pre class="raw_code">
+git version
+					</pre>
+					<img style="padding: 2em;" class="img-responsive img-rounded" src="/img/tut0_win2.png"/>
+					</p>
+
+					<h2> Step 2: Learn a lil Unix </h2>
+					<p>
+						Next thing is we need to give you a foundation for nativaging in the unix shell.
+					</p>
+					<div class="alert alert-info" role="alert">Note! when you see $ before a string. This is just to express this is a unix command. For example <b>$ sudo apt-get install git</b> you are supposed to type 'sudo apt-get install git' into terminal.</div>
+					<p>
+						<div class="panel panel-default">
+						  <div class="panel-heading">
+						    <h3 class="panel-title">ls</h3>
+						  </div>
+						  <div class="panel-body">
+						    The command <b> ls </b> is used to list all files and folders at the current level
+						  </div>
+						</div>
+						<div class="panel panel-default">
+						  <div class="panel-heading">
+						    <h3 class="panel-title"> mkdir</h3>
+						  </div>
+						  <div class="panel-body">
+						    mkdir is short for 'make directory' so you use this command to make new folders. Example: <b>$ mkdir test_folder</b>. This will make a new folder at the current level called test_folder. Try it out for yourself and then type <b>$ ls </b>
+						  </div>
+						</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">cd</h3>
+					  </div>
+					  <div class="panel-body">
+					    cd is short for 'Change Directory' so you use this command to navigate into and out of folers. Example:
+					    <b>$mkdir test && cd test</b>
+
+					    this will make a new folder called test and then put you into test. The && is just used to combine the two commands into one line. You can chain all kind of terminal commands together. 
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">../</h3>
+					  </div>
+					  <div class="panel-body">
+					    while technically not a command, this is a way to represent the higher tier. You use this if you want to move the path up a level.
+
+					    For example: You make a folder called test and then you cded into it. Now you want to move back up to the original location. you would use <b>$ cd ../ </b> Try it out for yourself
+					  </div>
+					</div>
+					</p>
+
+					<p>
+						If you want to learn move about these commands I recommend checking out the documentation at <a href="http://www.linfo.org/command_index.html">linfo.org</a>
+					</p>
+
+					<h3> Challenges</h3>
+					<div class="well well-lg">1. I want you to make a folder called Dev and then add another folder instead of it GitTest then navigate back to your original location. </div>
+
+					<h2> Part 3: Lets write some code</h2>
+					<p>
+						two more unix commands
+						<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">touch</h3>
+					  </div>
+					  <div class="panel-body">
+					    <b> touch </b> is similiar to mkdir. Except instead of making new folders it is constructing a new file. For example <b> $ touch helloworld.rb</b> This will create a new blank ruby script file called helloworld
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">nano</h3>
+					  </div>
+					  <div class="panel-body">
+					    nano is a built in terminal editor. There are many other ones but I prefer nano because of its simple Write function which I will demonstrate later. to use nano just type <b> $ nano file_name.extension</b>. Example: $ nano helloworld.rb
+					  </div>
+					</div>
+
+					<div class="alert alert-info" role="alert">Nano isn't available on windows since its a builtin application for the UNIX shells. Instead you may use any text edit your want: Notepad, Notepad++ or Sublime. I will be using Notepad for the duration of the tutorial</div>
+
+					Now lets make a program :D
+
+					type in <b>$ touch helloworld.rb </b>
+					now open up your new .rb file with your editor
+
+					Then type in the following
+					<pre>
+						<code class="ruby">
+puts 'hello world'
+						</code>
+					</pre>
+					Should look like something like this
+					<img style="padding: 2em;" class="img-responsive img-rounded" src="/img/tut0_win3.png"/>
+					and save it 
+					</p>
+					<p>
+					next type in <b>$ ruby helloworld.rb</b>
+					This will tell ruby to run this new script and it should print out 'hello world'
+					</p>
+
+					<h2> Part 4: Git started</h2>
+					<p> Now we have a program lets use some version control. Type in the following 4 commands in sequence</p>
+					<pre class="raw_code">
+git init
+git add -A
+git status
+git commit -m "initialize"
+					</pre>
+					<p>
+					Does yours look like mine??
+					</p>
+					<img style="padding: 2em;" class="img-responsive img-rounded" src="/img/tut0_win4.png"/>
+					<p>
+						Lets break it down line by line 
+					</p>
+					<p> <b> git init</b>
+					This is initializing an empty git repo at the current location
+					</p>
+					<p> <b> git add -A</b>
+					<em> git add</em> adds files to the git repo. For example, <b>$ git add helloworld.rb</b> would also have added our file. However, we used the suffix -A instead because it searches and finds all valid options and adds them.
+					</p>
+					<p> <b> git status</b>
+					Status states whats current on the stage. This step isn't necessary but I want to exspose some of the internal working of git. You can think of it like this: In a git repo, a file has 3 states [ indepenent, on stage , committed]. A commited file is a file with a history in the repo, an independent file is not a part of the repo. Either it hasn't been added to or it demeed unneceasry anymore and was removed from the repo. The final one is the stage. This is what status tells us, the stage is important because these are the files of interest for this commit. Its how git determines what files are going to cause merge conflicts. It'll be come clearer the more we play with git.  
+					</p>
+					<p> <b> git commit -m "initialize"</b>
+					Commits are the cornerstone of git. Commits are the nodes in the branching graphs in Git. For those unfamiliar with graph thoery, commits are the different version builds they are solid merged states. Git can revert back to any git commit. Each on of those dots are a different commit. The current build is at dev but you could move the program back to a previous node like feature_x and change all of ur current files back to that old state.
+					</p>
+					<img class="img-rounded img-responsive" src="http://gitguru.com/wp-content/uploads/2009/02/sd_merge.png"></img>
+
+					<h2> Part 5: Do some branching</h2>
+					<p> 
+					Hey so we have a git repo made with an initial node....why dont we start playing around with this :D
+					</p>
+					<p><b>edit helloworld.rb</b></p>
+<pre>
+	<code class="ruby">
+puts "hello world"
+puts "My name is YOUR_NAME"
+	</code>
+</pre>
+<p> Now save it and run it with <b> $ ruby helloworld.rb</b> It should have printed out both lines</p>
+<p> Now lets save your progress with</p>
+<pre class="raw_code">
+git add -A
+git commit -m "added one more line"
+</pre>
+<p> Now your git is up to date. However...what if we wanted to undo this change? well one way is to move back a commit</p>
+<p> We accomplish this by typing in the following</p>
+<pre class="raw_code">
+git reset --hard HEAD~1
+</pre>
+<div class="alert alert-warning" role="alert"><b>Note:</b> That is HEAD~1 with a tilde not a minus sign</div>
+<p> Now that should have removed our changes and reverted us back to the old version. You can check this out by typing in <b> $ ruby helloworld.rb</b>. While this solution works its like killing a fly with a bazooka</p>
+
+<p> Now we can always just edit what we want to undo and just make a new commit. However when handling thousands of files...that option isn't a small task. So why don't we employ a more sophisticated solution to a making a minor change. </p>
+
+<p> Edit helloworld.rb again and copy the following: </p>
+<pre> 
+<code class="ruby">
+x = 0
+x += 5
+puts "Hello I am Android#{x}"
+</code>
+</pre>
+
+<p> Now add and commit. Ex: <b>$ git add -A && git commit -m "Android5"</b></p>
+
+<p> Now type in <b>$git show</b>. This shows you the commit message as well as showing you the different changes made at this level. You can go and manual undo those changes</p>
+
+<img src="/img/tut0_win5.png" class="img-responsible img-rounded"></img>
+
+<p> Next lets do some branching. Branches are useful for when you want to develop a particular feature or make a major change but don't know how it will affect the rest of the system. So you create a seperate version just for yourself to experiement. Then when you have solved all the issues you can merge it with the master</p>
+
+<pre class="raw_code">
+git branch foo_branch
+git checkout foo_branch
+</pre>
+<p><b>$ git branch BRANCH_NAME</b> makes a new git branch</p>
+<p><b>$ git checkout BRANCH_NAME</b> moves the HEAD pointer to this named branch</p>
+<p> You can actually combine the two commands into <b>$ git checkout -b BRANCH_NAME </b></p>
+
+<p> Now remove everything in helloworld.rb and copy this:</p>
+<pre>
+<code class="ruby">
+class Foo
+  attr_accessor :bar
+  def initialize(b)
+    @bar = b
+  end
+end
+
+f = Foo.new('FuzzBuzz')
+puts f.bar
+</code>
+</pre>
+
+<p> Now lets add these changes and commit them. <b>$ git commit -a -m "added Foo class"</b> </p>
+<p> When you run $ruby helloworld.rb you will notice it only says <b> FuzzBuzz</b></p>
+<p> However, if you type in <b>$git checkout master</b> and run <b> $ruby helloworld.rb</b> it should print out <b>Hello, I am Android5</b></p>
+
+
+<h2> Part 6: Merging </h2>
+<p> The next major topic is merging. Merging allows you to combine different branches together. I will demonstrate how to use git's tools to handle merge conflictions.</p><p>
+Now lets make sure our head is at master <b> $git checkout master</b> now lets change the code to helloworld.rb</p>
+
+<pre>
+<code class="ruby">
+puts "Master += foo_branch"
+</code>
+</pre>
+
+<p> now add and commit <b> $git commit -a -m "Master += foo_branch"</b></p>
+
+<p> run <b> $ ruby helloworld.rb</b></p>
+
+<p> okay now run <b>$ git merge foo_branch </b></p>
+<p> You should get this message</p>
+<pre class="raw_code">
+$ git merge foo_branch
+Auto-merging helloworld.rb
+CONFLICT (content): Merge conflict in helloworld.rb
+Automatic merge failed; fix conflicts and then commit the result.
+</pre>
+<p> So we now need to clean up and resolve the merge issues before we can proceed. Type in <b> $git status </b> </p>
+
+<img src="/img/tut0_win6.png" class="img-responsible img-rounded"></img>
+
+<p> It will state we have merge issues. So we need to resolve this. We can manually go through our files and find the instances where there are <===HEAD== like comments. Unforunately we could easily miss one going that route. Instead we will use git's mergetools</p>
+
+<p> Now for Linux and Mac they have built in tools to handle this issue. However, windows you need to either add <a href="http://jebaird.com/2013/07/08/setting-up-kdiff3-as-the-default-merge-tool-for-git-on-windows.html">kdiff</a> or you can use a third party software like <a href="http://www.sourcetreeapp.com/">Source Tree</a></p>
+
+<p> Some people may find Sourcetree and easier experience. While it is easier to get lost in its gui, it will try to push you in the correct direction. Note if you are going to use Sourcetree, it might be a good to setup a github account while it downloads and installs. It will prompt you for it during the installer-wizard</p>
+
+<p> Next install <a href="http://jebaird.com/2013/07/08/setting-up-kdiff3-as-the-default-merge-tool-for-git-on-windows.html">kdiff</a>. If you got kdiff configured to work with your bash. Feel free to follow the Linux or Mac instructions after this point. Otherwise use Source Tree and continue with this verision of the tutorial</p>
+
+<p> Let's add kdiff to Sourcetree. Click on Tools->Options and navigate to the Diff tab. Now under Diff Tool and Merge Tool change the dropdown to KDiff3</p>
+
+<img src="/img/tut0_win9.png" class="img-responsible img-rounded"></img>
+
+<p> Now with SourceTree up and running. Click on File->Open and navigate to the folder your currently in. This should allow it to find your git repo.</p>
+
+<p> Now click on the merge icon. Your screen should look like this: </p>
+<img src="/img/tut0_win7.png" class="img-responsible img-rounded"></img>
+
+<p> Use the default settings, you should get this message alerting that you have conflicts</p>
+<img src="/img/tut0_win8.png" class="img-responsible img-rounded"></img>
+
+<p> To resolve this problem we have a couple of options. Click on Actions->Resolve Conflicts. We can use "Resolve using Theirs" this will overwrite the local and base with the Remote branches version. "Resolve using Mine" will persist with the local version. The third option allows us to handle this with a case by case. Select "Launch External Merge tool". This will launch kdiff3 with our current merge </p>
+
+<img src="/img/tut0_win10.png" class="img-responsible img-rounded"></img>
+
+| Base | Local | Remote |
+|        Merge          |
+
+<p>so Local is the current branch we are at the end of master </p>
+<p>Remote is the branch we are merging with so Foo_branch</p>
+<p>Base is the last commit these two branches have in common
+and Merge is the result we want. Just edit Merge how you want.  </p>
+
+<p> We want to grab 'puts "Master ...' from Local and place that at the top of the merge. Then grab "class Foo..." from Remote and place it under 'puts "Master..."'. You can </p>
+
+<p> An easy way to accomplish this is to press B and C. This will build the result we want. </p>
+
+<p> The merged result should look like this:</p>
+<pre>
+<code class="ruby">
+puts "Master += foo_branch"
+
+class Foo
+  attr_accessor :bar
+  def init(b)
+    @bar = b
+  end
+end
+
+f = Foo.new("FuzzBuzz")
+puts f.bar
+</code>
+</pre>
+
+<p> Now save and quit this program</p>
+<p> click on Commit</p>
+<p> and run <b> $ ruby helloworld.rb</b> again.</p>
+
+<pre class="raw_code">
+Master += foo_branch
+FuzzBuzz
+</pre>
+		<p> If that was your output, then congratulations you have successfully merged the two branches. The only thing left is to host it online</p>
+
+		<h2> Part 7: Beam me up Octocat</h2>
+		<p> The final part of this tutorial is for you to get yourself a github account, make a new remote repo and to push this repo up to the cloud </p>
+
+		<p> Go to <a href="http://github.com">Github</a> and make yourself a new account. Remember this new name and password you will need it later. Then after you finish making an account click on the new repo button. Then copy that new repos url. Finally put in these commands</p>
+
+		<p> For example, my repo's url was <b>https://github.com/honeycodedbear/gittest3.git</b></p>
+		
+		<p> Now click on the Settings Gear in Sourcetree. It is in the upper right hand corner.</p>
+		<img src="/img/tut0_win11.png" class="img-responsible img-rounded"></img>
+		<img src="/img/tut0_win12.png" class="img-responsible img-rounded"></img>
+		<img src="/img/tut0_win13.png" class="img-responsible img-rounded"></img>
+		<p> Congratulations you have finished this tutorial :D</p></div>
 					</div>
 					
 					<ul class="pager">
