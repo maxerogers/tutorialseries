@@ -961,11 +961,12 @@ git commit -m "initialize"
 					<img class="img-rounded img-responsive" src="http://gitguru.com/wp-content/uploads/2009/02/sd_merge.png"></img>
 
 					<h2> Part 5: Do some branching</h2>
-
+				
 					<p> 
 					Hey so we have a git repo made with an initial node....why dont we start playing around with this :D
 					</p>
-					<p><b>edit helloworld.rb</b></p>
+					<p> open helloworld.rb up again with nano </p>
+					<p><b>$ nano helloworld.rb</b></p>
 <pre>
 	<code class="ruby">
 puts "hello world"
@@ -988,122 +989,14 @@ git reset --hard HEAD~1
 
 <p> Now we can always just edit what we want to undo and just make a new commit. However when handling thousands of files...that option isn't a small task. So why don't we employ a more sophisticated solution to a making a minor change. </p>
 
-<p> Edit helloworld.rb again and copy the following: </p>
+<p> open Hello world up again using nano <b> $ nano helloworld.rb</b> and copy the following: </p>
 <pre> 
 <code class="ruby">
-x = 0
-x += 5
-puts "Hello I am Android#{x}"
-</code>
-</pre>
+puts "Base Commit"
 
-<p> Now add and commit. Ex: <b>$ git add -A && git commit -m "Android5"</b></p>
-
-<p> Now type in <b>$git show</b>. This shows you the commit message as well as showing you the different changes made at this level. You can go and manual undo those changes</p>
-
-<img src="/img/tut0_win5.PNG" class="img-responsive img-rounded"></img>
-
-<p> Next lets do some branching. Branches are useful for when you want to develop a particular feature or make a major change but don't know how it will affect the rest of the system. So you create a seperate version just for yourself to experiement. Then when you have solved all the issues you can merge it with the master</p>
-
-<pre class="raw_code">
-git branch foo_branch
-git checkout foo_branch
-</pre>
-<p><b>$ git branch BRANCH_NAME</b> makes a new git branch</p>
-<p><b>$ git checkout BRANCH_NAME</b> moves the HEAD pointer to this named branch</p>
-<p> You can actually combine the two commands into <b>$ git checkout -b BRANCH_NAME </b></p>
-
-<p> Now remove everything in helloworld.rb and copy this:</p>
-<pre>
-<code class="ruby">
 class Foo
   attr_accessor :bar
   def initialize(b)
-    @bar = b
-  end
-end
-
-f = Foo.new('FuzzBuzz')
-puts f.bar
-</code>
-</pre>
-
-<p> Now lets add these changes and commit them. <b>$ git commit -a -m "added Foo class"</b> </p>
-<p> When you run $ruby helloworld.rb you will notice it only says <b> FuzzBuzz</b></p>
-<p> However, if you type in <b>$git checkout master</b> and run <b> $ruby helloworld.rb</b> it should print out <b>Hello, I am Android5</b></p>
-
-
-<h2> Part 6: Merging </h2>
-
-<p> The next major topic is merging. Merging allows you to combine different branches together. I will demonstrate how to use git's tools to handle merge conflictions.</p><p>
-Now lets make sure our head is at master <b> $git checkout master</b> now lets change the code to helloworld.rb</p>
-
-<pre>
-<code class="ruby">
-puts "Master += foo_branch"
-</code>
-</pre>
-
-<p> now add and commit <b> $git commit -a -m "Master += foo_branch"</b></p>
-
-<p> run <b> $ ruby helloworld.rb</b></p>
-
-<p> okay now run <b>$ git merge foo_branch </b></p>
-<p> You should get this message</p>
-<pre class="raw_code">
-$ git merge foo_branch
-Auto-merging helloworld.rb
-CONFLICT (content): Merge conflict in helloworld.rb
-Automatic merge failed; fix conflicts and then commit the result.
-</pre>
-<p> So we now need to clean up and resolve the merge issues before we can proceed. Type in <b> $git status </b> </p>
-
-<img src="/img/tut0_win6.png" class="img-responsive img-rounded"></img>
-
-<p> It will state we have merge issues. So we need to resolve this. We can manually go through our files and find the instances where there are <===HEAD== like comments. Unforunately we could easily miss one going that route. Instead we will use git's mergetools</p>
-
-<p> Now for Linux and Mac they have built in tools to handle this issue. However, windows you need to either add <a href="http://jebaird.com/2013/07/08/setting-up-kdiff3-as-the-default-merge-tool-for-git-on-windows.html">kdiff</a> or you can use a third party software like <a href="http://www.sourcetreeapp.com/">Source Tree</a></p>
-
-<p> Some people may find Sourcetree and easier experience. While it is easier to get lost in its gui, it will try to push you in the correct direction. Note if you are going to use Sourcetree, it might be a good to setup a github account while it downloads and installs. It will prompt you for it during the installer-wizard</p>
-
-<p> Next install <a href="http://jebaird.com/2013/07/08/setting-up-kdiff3-as-the-default-merge-tool-for-git-on-windows.html">kdiff</a>. If you got kdiff configured to work with your bash. Feel free to follow the Linux or Mac instructions after this point. Otherwise use Source Tree and continue with this verision of the tutorial</p>
-
-<p> Let's add kdiff to Sourcetree. Click on Tools->Options and navigate to the Diff tab. Now under Diff Tool and Merge Tool change the dropdown to KDiff3</p>
-
-<img src="/img/tut0_win9.PNG" class="img-responsive img-rounded"></img>
-
-<p> Now with SourceTree up and running. Click on File->Open and navigate to the folder your currently in. This should allow it to find your git repo.</p>
-
-<p> Now click on the merge icon. Your screen should look like this: </p>
-<img src="/img/tut0_win7.PNG" class="img-responsive img-rounded"></img>
-
-<p> Use the default settings, you should get this message alerting that you have conflicts</p>
-<img src="/img/tut0_win8.PNG" class="img-responsive img-rounded"></img>
-
-<p> To resolve this problem we have a couple of options. Click on Actions->Resolve Conflicts. We can use "Resolve using Theirs" this will overwrite the local and base with the Remote branches version. "Resolve using Mine" will persist with the local version. The third option allows us to handle this with a case by case. Select "Launch External Merge tool". This will launch kdiff3 with our current merge </p>
-
-<img src="/img/tut0_win10.PNG" class="img-responsive img-rounded"></img>
-
-| Base | Local | Remote |
-|        Merge          |
-
-<p>so Local is the current branch we are at the end of master </p>
-<p>Remote is the branch we are merging with so Foo_branch</p>
-<p>Base is the last commit these two branches have in common
-and Merge is the result we want. Just edit Merge how you want.  </p>
-
-<p> We want to grab 'puts "Master ...' from Local and place that at the top of the merge. Then grab "class Foo..." from Remote and place it under 'puts "Master..."'. You can </p>
-
-<p> An easy way to accomplish this is to press B and C. This will build the result we want. </p>
-
-<p> The merged result should look like this:</p>
-<pre>
-<code class="ruby">
-puts "Master += foo_branch"
-
-class Foo
-  attr_accessor :bar
-  def init(b)
     @bar = b
   end
 end
@@ -1113,29 +1006,188 @@ puts f.bar
 </code>
 </pre>
 
+<p> Now add and commit. Ex: <b>$ git add -A && git commit -m "Base Commit"</b></p>
+
+<p> Now type in <b>$git show</b>. This shows you the commit message as well as showing you the different changes made at this level. You can go and manual undo those changes</p>
+
+<img src="/img/tut0_5.png" class="img-responsive img-rounded"></img>
+
+<p> Next lets do some branching. Branches are useful for when you want to develop a particular feature or make a major change but don't know how it will affect the rest of the system. So you create a seperate version just for yourself to experiement. Then when you have solved all the issues you can merge it with the master</p>
+
+<pre class="raw_code">
+git branch branching_method
+git checkout branching_method
+</pre>
+<p><b>$ git branch BRANCH_NAME</b> makes a new git branch</p>
+<p><b>$ git checkout BRANCH_NAME</b> moves the HEAD pointer to this named branch</p>
+<p> You can actually combine the two commands into <b>$ git checkout -b BRANCH_NAME </b></p>
+
+<p> Now remove everything in helloworld.rb and copy this:</p>
+<pre>
+<code class="ruby">
+puts "Branching Branch"
+
+class Foo
+  attr_accessor :bar
+  def initialize(b)
+    @bar = b
+  end
+
+  def branching_method
+    "branching_method"
+  end
+end
+
+f = Foo.new("FuzzBuzz")
+puts f.bar
+</code>
+</pre>
+
+<p> Now lets add these changes and commit them. <b>$ git commit -a -m "added branching method to class"</b> </p>
+<p> When you run $ruby helloworld.rb you will notice it only says <b>Branching Branch \n FuzzBuzz</b></p>
+<p> However, if you type in <b>$git checkout master</b> and run <b> $ruby helloworld.rb</b> it should print out <b>Base Branch \n FuzzBuzz</b></p>
+
+
+<h2> Part 6: Merging </h2>
+
+<p> The next major topic is merging. Merging allows you to combine different branches together. I will demonstrate how to use git's tools to handle merge conflictions.</p><p>
+Now lets make sure our head is at master <b> $git checkout master</b> now lets change the code to helloworld.rb</p>
+
+<pre>
+<code class="ruby">
+puts "Local Branch"
+
+class Foo
+  attr_accessor :bar
+  def initialize(b)
+    @bar = b
+  end
+
+  def local_branch
+    "Local branch method"
+  end 
+end
+
+f = Foo.new("FuzzBuzz")
+puts f.bar
+
+</code>
+</pre>
+
+<p> now add and commit <b> $git commit -a -m "Local Branch"</b></p>
+
+<p> run <b> $ ruby helloworld.rb</b></p>
+<p> Should return <b> Local Branch
+FuzzBuzz
+</b></p>
+
+<p> okay now run <b>$ git merge branching_branch </b></p>
+<p> You should get this message</p>
+<pre class="raw_code">
+$ git merge branching_branch
+Auto-merging helloworld.rb
+CONFLICT (content): Merge conflict in helloworld.rb
+Automatic merge failed; fix conflicts and then commit the result.
+</pre>
+<p> So we now need to clean up and resolve the merge issues before we can proceed. Type in <b> $git status </b> </p>
+
+<img src="/img/tut0_git_status.png" class="img-responsive img-rounded">
+
+<p> It will state we have merge issues. So we need to resolve this. We can manually go through our files and find the instances where there are <===HEAD== like comments. Unforunately we could easily miss one going that route. Instead we will use git's mergetools</p>
+
+<p> For this tutorial, we will be using kdiff3 since it is a cross platform program. To install kdiff3 for Windows, follow this <a href="#">link</a>. Then open up the gitconfig file at C:/Users/YOUR_USERNAME/.gitconfig. Add the following lines to it and save </p>
+
+<pre class="raw_code">
+[merge]
+	tool = kdiff3
+[mergetool "kdiff3"]
+	path = C:/Program Files/KDiff3/kdiff3.exe
+	keepBackup = false
+	trustExitCode = true
+
+</pre>
+
+
+<p> After a successful installation now run this command to configure git to use it. <b>$ git config --global merge.tool kdiff3</b></p>
+
+<p>Now type in <b>$git mergetool </b> and then enter</p>
+<img src="/img/tut0_7.png" class="img-responsive img-rounded">
+<img src="/img/tut0_8.png" class="img-responsive img-rounded">
+
+<p> This will bring up the kdiff3 tool. It allows use to handle 3 way merging of our files as well as navigate us between conflicts.</p>
+
+<p> The structure of these 4 windows is as such:</p>
+<pre class="raw_code">
+| Base | Local | Remote |
+|        Merge          |
+
+</pre>
+
+<p>so Local is the current branch we are at the end of master </p>
+<p>Remote is the branch we are merging with so Branching_branch</p>
+<p>Base is the last commit these two branches have in common
+and Merge is the result we want. Just edit Merge how you want.  </p>
+
+<p> A few buttons to keep in mind are the A,B,C buttons. They import the differences of A:Base, B:Local and C:Remote directly into Merge. Once Merge is how you want it to be, hit the save icon in the left corner.</p>
+
+<p> The first conflict we don't want any of the three choices. So we will skip it. Use the 3 Downarrow button. Now select B & C. Based upon how these methods were spaced out. They may take up the same line so manual editing may be required. Hit the 3 Uparrow button to return to the first conflict. Now just pick one from A,B,C and just type in the following: <b> puts "Merged Commit"</b></p>
+
+<p> The merged result should look like this:</p>
+<pre>
+<code class="ruby">
+puts "Merged Commit"
+
+class Foo
+  attr_accessor :bar
+  def initialize(b)
+    @bar = b
+  end
+
+  def local_method
+    return true
+  end
+  
+  def branching_method
+    return true
+  end
+end
+
+f = Foo.new("FuzzBuzz")
+puts f.bar
+
+</code>
+</pre>
+
 <p> Now save and quit this program</p>
-<p> click on Commit</p>
+<p> run <b>$ git commit -a -m "Fixed merge conflicts"</b></p>
+<p> Then run <b> $git clean -f</b>. This will remove any no-longer necessary merge conflicting files</p>
 <p> and run <b> $ ruby helloworld.rb</b> again.</p>
 
 <pre class="raw_code">
-Master += foo_branch
+Merged Commit
 FuzzBuzz
 </pre>
 		<p> If that was your output, then congratulations you have successfully merged the two branches. The only thing left is to host it online</p>
 
 		<h2> Part 7: Beam me up Octocat</h2>
+		
 		<p> The final part of this tutorial is for you to get yourself a github account, make a new remote repo and to push this repo up to the cloud </p>
 
 		<p> Go to <a href="http://github.com">Github</a> and make yourself a new account. Remember this new name and password you will need it later. Then after you finish making an account click on the new repo button. Then copy that new repos url. Finally put in these commands</p>
 
-		<p> For example, my repo's url was <b>https://github.com/honeycodedbear/gittest3.git</b></p>
-		
-		<p> Now click on the Settings Gear in Sourcetree. It is in the upper right hand corner.</p>
-		<p><img src="/img/tut0_win11.PNG" class="img-responsive img-rounded"></img>
-		<img src="/img/tut0_win12.PNG" class="img-responsive img-rounded"></img>
-		<img src="/img/tut0_win13.PNG" class="img-responsive img-rounded"></img>
-		</p>
-		<p> Congratulations you have finished this tutorial :D</p></div>
+		<p> For example, my repo's url was <b> https://github.com/honeycodedbear/GitTestRuby</b></p>
+		<pre class="raw_code">
+git remote add origin YOUR_REPOS_URL
+git push origin master
+		</pre>
+		<p> You should be prompted for your email/username and a password. Hopefully you haven't forgotten it</p>
+		<p> If all goes well this should your final result</p>
+		<img src="/img/tut0_9.png" class="img-responsive img-rounded">
+
+		<p> One last thing, move your self to a differnet directory. Then type in the following: <b> $git clone YOUR_GITHUB_REPO_URL</b> This command will download and copy your git repo to your machine at that location. Now you have learned all the basics of Git and UNIX. Congratulations you have finished this tutorial :D</p>
+		<p> Hopefully your knowledge of Git branching, merging, cloning and hosting will allow you to work collarbately without programmers.</p>
+
+		<p> if you are interested in learning more about Git then feel free to check out this <a href="http://git-scm.com/book/">site</a></p></div>
 					</div>
 					
 				</div>
