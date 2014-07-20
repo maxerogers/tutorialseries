@@ -1,5 +1,6 @@
 require "sinatra"
 require 'sinatra/activerecord'
+require "browser"
 require './config/environments' #database configuration
 require './models/model'        #Model class
 
@@ -12,6 +13,7 @@ get '/tut0' do
 end
 
 get '/tut0b' do
+	@browser = Browser.new(:ua => "some string", :accept_language => "en-us")
 	erb :tut0b
 end
 
