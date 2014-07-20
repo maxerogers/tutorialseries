@@ -1,0 +1,237 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'update',
+1 verbose cli   'npm',
+1 verbose cli   '-g',
+1 verbose cli   '--prefix',
+1 verbose cli   '/usr/local' ]
+2 info using npm@1.4.9
+3 info using node@v0.10.29
+4 verbose node symlink /usr/local/bin/node
+5 verbose url raw npm
+6 verbose url resolving [ 'https://registry.npmjs.org/', './npm' ]
+7 verbose url resolved https://registry.npmjs.org/npm
+8 info trying registry request attempt 1 at 17:21:51
+9 verbose etag "6ADSNX8UFLXSKIVKMTFASQQC5"
+10 http GET https://registry.npmjs.org/npm
+11 verbose url raw npm
+12 verbose url resolving [ 'https://registry.npmjs.org/', './npm' ]
+13 verbose url resolved https://registry.npmjs.org/npm
+14 info trying registry request attempt 1 at 17:21:51
+15 verbose etag "6ADSNX8UFLXSKIVKMTFASQQC5"
+16 http GET https://registry.npmjs.org/npm
+17 verbose url raw npm
+18 verbose url resolving [ 'https://registry.npmjs.org/', './npm' ]
+19 verbose url resolved https://registry.npmjs.org/npm
+20 info trying registry request attempt 1 at 17:21:51
+21 verbose etag "6ADSNX8UFLXSKIVKMTFASQQC5"
+22 http GET https://registry.npmjs.org/npm
+23 http 200 https://registry.npmjs.org/npm
+24 silly registry.get cb [ 200,
+24 silly registry.get   { date: 'Fri, 18 Jul 2014 21:21:51 GMT',
+24 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+24 silly registry.get     etag: '"17AFAC12PNSFXIIFF30UZNHZV"',
+24 silly registry.get     'content-type': 'application/json',
+24 silly registry.get     'cache-control': 'max-age=30',
+24 silly registry.get     'content-length': '1112675',
+24 silly registry.get     'accept-ranges': 'bytes',
+24 silly registry.get     via: '1.1 varnish',
+24 silly registry.get     age: '768',
+24 silly registry.get     'x-served-by': 'cache-iad2132-IAD',
+24 silly registry.get     'x-cache': 'HIT',
+24 silly registry.get     'x-cache-hits': '1',
+24 silly registry.get     'x-timer': 'S1405718511.328296,VS0,VE15',
+24 silly registry.get     vary: 'Accept',
+24 silly registry.get     'keep-alive': 'timeout=10, max=50',
+24 silly registry.get     connection: 'Keep-Alive' } ]
+25 http 200 https://registry.npmjs.org/npm
+26 silly registry.get cb [ 200,
+26 silly registry.get   { date: 'Fri, 18 Jul 2014 21:21:51 GMT',
+26 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+26 silly registry.get     etag: '"17AFAC12PNSFXIIFF30UZNHZV"',
+26 silly registry.get     'content-type': 'application/json',
+26 silly registry.get     'cache-control': 'max-age=30',
+26 silly registry.get     'content-length': '1112675',
+26 silly registry.get     'accept-ranges': 'bytes',
+26 silly registry.get     via: '1.1 varnish',
+26 silly registry.get     age: '768',
+26 silly registry.get     'x-served-by': 'cache-iad2123-IAD',
+26 silly registry.get     'x-cache': 'HIT',
+26 silly registry.get     'x-cache-hits': '1',
+26 silly registry.get     'x-timer': 'S1405718511.345481,VS0,VE6',
+26 silly registry.get     vary: 'Accept',
+26 silly registry.get     'keep-alive': 'timeout=10, max=50',
+26 silly registry.get     connection: 'Keep-Alive' } ]
+27 http 200 https://registry.npmjs.org/npm
+28 silly registry.get cb [ 200,
+28 silly registry.get   { date: 'Fri, 18 Jul 2014 21:21:51 GMT',
+28 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+28 silly registry.get     etag: '"17AFAC12PNSFXIIFF30UZNHZV"',
+28 silly registry.get     'content-type': 'application/json',
+28 silly registry.get     'cache-control': 'max-age=30',
+28 silly registry.get     'content-length': '1112675',
+28 silly registry.get     'accept-ranges': 'bytes',
+28 silly registry.get     via: '1.1 varnish',
+28 silly registry.get     age: '768',
+28 silly registry.get     'x-served-by': 'cache-iad2131-IAD',
+28 silly registry.get     'x-cache': 'HIT',
+28 silly registry.get     'x-cache-hits': '1',
+28 silly registry.get     'x-timer': 'S1405718511.337349,VS0,VE8',
+28 silly registry.get     vary: 'Accept',
+28 silly registry.get     'keep-alive': 'timeout=10, max=50',
+28 silly registry.get     connection: 'Keep-Alive' } ]
+29 info outdated updating [ [ '/usr/local/lib', 'npm', '1.4.9', '1.5.0-alpha-3', '1.4.21', '*' ],
+29 info outdated   [ '/usr/local/lib/node_modules/ionic',
+29 info outdated     'npm',
+29 info outdated     '1.4.13',
+29 info outdated     '1.5.0-alpha-3',
+29 info outdated     '1.4.21',
+29 info outdated     '^1.4.6' ],
+29 info outdated   [ '/usr/local/lib/node_modules/cordova/node_modules/cordova-lib',
+29 info outdated     'npm',
+29 info outdated     '1.3.4',
+29 info outdated     '1.3.4',
+29 info outdated     '1.4.21',
+29 info outdated     '1.3.4' ] ]
+30 verbose install where,what [ '/usr/local/lib', [ 'npm@1.5.0-alpha-3' ] ]
+31 verbose install where,what [ '/usr/local/lib/node_modules/ionic', [ 'npm@1.5.0-alpha-3' ] ]
+32 verbose install where,what [ '/usr/local/lib/node_modules/cordova/node_modules/cordova-lib',
+32 verbose install   [ 'npm@1.3.4' ] ]
+33 verbose readDependencies using package.json deps
+34 verbose cache add [ 'npm@1.5.0-alpha-3', null ]
+35 verbose cache add name=undefined spec="npm@1.5.0-alpha-3" args=["npm@1.5.0-alpha-3",null]
+36 verbose parsed url { protocol: null,
+36 verbose parsed url   slashes: null,
+36 verbose parsed url   auth: null,
+36 verbose parsed url   host: null,
+36 verbose parsed url   port: null,
+36 verbose parsed url   hostname: null,
+36 verbose parsed url   hash: null,
+36 verbose parsed url   search: null,
+36 verbose parsed url   query: null,
+36 verbose parsed url   pathname: 'npm@1.5.0-alpha-3',
+36 verbose parsed url   path: 'npm@1.5.0-alpha-3',
+36 verbose parsed url   href: 'npm@1.5.0-alpha-3' }
+37 verbose cache add name="npm" spec="1.5.0-alpha-3" args=["npm","1.5.0-alpha-3"]
+38 verbose parsed url { protocol: null,
+38 verbose parsed url   slashes: null,
+38 verbose parsed url   auth: null,
+38 verbose parsed url   host: null,
+38 verbose parsed url   port: null,
+38 verbose parsed url   hostname: null,
+38 verbose parsed url   hash: null,
+38 verbose parsed url   search: null,
+38 verbose parsed url   query: null,
+38 verbose parsed url   pathname: '1.5.0-alpha-3',
+38 verbose parsed url   path: '1.5.0-alpha-3',
+38 verbose parsed url   href: '1.5.0-alpha-3' }
+39 verbose addNamed [ 'npm', '1.5.0-alpha-3' ]
+40 verbose addNamed [ '1.5.0-alpha-3', '1.5.0-alpha-3' ]
+41 silly lockFile dcc0b1e0-npm-1-5-0-alpha-3 npm@1.5.0-alpha-3
+42 verbose lock npm@1.5.0-alpha-3 /Users/max/.npm/dcc0b1e0-npm-1-5-0-alpha-3.lock
+43 verbose cache add [ 'npm@1.5.0-alpha-3', null ]
+44 verbose cache add name=undefined spec="npm@1.5.0-alpha-3" args=["npm@1.5.0-alpha-3",null]
+45 verbose parsed url { protocol: null,
+45 verbose parsed url   slashes: null,
+45 verbose parsed url   auth: null,
+45 verbose parsed url   host: null,
+45 verbose parsed url   port: null,
+45 verbose parsed url   hostname: null,
+45 verbose parsed url   hash: null,
+45 verbose parsed url   search: null,
+45 verbose parsed url   query: null,
+45 verbose parsed url   pathname: 'npm@1.5.0-alpha-3',
+45 verbose parsed url   path: 'npm@1.5.0-alpha-3',
+45 verbose parsed url   href: 'npm@1.5.0-alpha-3' }
+46 verbose cache add name="npm" spec="1.5.0-alpha-3" args=["npm","1.5.0-alpha-3"]
+47 verbose parsed url { protocol: null,
+47 verbose parsed url   slashes: null,
+47 verbose parsed url   auth: null,
+47 verbose parsed url   host: null,
+47 verbose parsed url   port: null,
+47 verbose parsed url   hostname: null,
+47 verbose parsed url   hash: null,
+47 verbose parsed url   search: null,
+47 verbose parsed url   query: null,
+47 verbose parsed url   pathname: '1.5.0-alpha-3',
+47 verbose parsed url   path: '1.5.0-alpha-3',
+47 verbose parsed url   href: '1.5.0-alpha-3' }
+48 verbose addNamed [ 'npm', '1.5.0-alpha-3' ]
+49 info shrinkwrap file "/usr/local/lib/node_modules/cordova/node_modules/cordova-lib/npm-shrinkwrap.json"
+50 verbose readDependencies returned deps { 'bplist-parser': '0.0.5',
+50 verbose readDependencies returned deps   'dep-graph': 'https://registry.npmjs.org/dep-graph/-/dep-graph-1.1.0.tgz',
+50 verbose readDependencies returned deps   elementtree: '0.1.5',
+50 verbose readDependencies returned deps   glob: '3.2.9',
+50 verbose readDependencies returned deps   mime: '1.2.11',
+50 verbose readDependencies returned deps   npm: '1.3.4',
+50 verbose readDependencies returned deps   npmconf: 'https://registry.npmjs.org/npmconf/-/npmconf-0.1.16.tgz',
+50 verbose readDependencies returned deps   osenv: '0.0.3',
+50 verbose readDependencies returned deps   'plist-with-patches': '0.5.1',
+50 verbose readDependencies returned deps   q: '0.9.7',
+50 verbose readDependencies returned deps   rc: 'https://registry.npmjs.org/rc/-/rc-0.3.0.tgz',
+50 verbose readDependencies returned deps   request: '2.22.0',
+50 verbose readDependencies returned deps   semver: '2.0.11',
+50 verbose readDependencies returned deps   shelljs: '0.1.4',
+50 verbose readDependencies returned deps   tar: '0.1.19',
+50 verbose readDependencies returned deps   underscore: '1.4.4',
+50 verbose readDependencies returned deps   xcode: 'https://registry.npmjs.org/xcode/-/xcode-0.6.6.tgz' }
+51 verbose cache add [ 'npm@1.3.4', null ]
+52 verbose cache add name=undefined spec="npm@1.3.4" args=["npm@1.3.4",null]
+53 verbose parsed url { protocol: null,
+53 verbose parsed url   slashes: null,
+53 verbose parsed url   auth: null,
+53 verbose parsed url   host: null,
+53 verbose parsed url   port: null,
+53 verbose parsed url   hostname: null,
+53 verbose parsed url   hash: null,
+53 verbose parsed url   search: null,
+53 verbose parsed url   query: null,
+53 verbose parsed url   pathname: 'npm@1.3.4',
+53 verbose parsed url   path: 'npm@1.3.4',
+53 verbose parsed url   href: 'npm@1.3.4' }
+54 verbose cache add name="npm" spec="1.3.4" args=["npm","1.3.4"]
+55 verbose parsed url { protocol: null,
+55 verbose parsed url   slashes: null,
+55 verbose parsed url   auth: null,
+55 verbose parsed url   host: null,
+55 verbose parsed url   port: null,
+55 verbose parsed url   hostname: null,
+55 verbose parsed url   hash: null,
+55 verbose parsed url   search: null,
+55 verbose parsed url   query: null,
+55 verbose parsed url   pathname: '1.3.4',
+55 verbose parsed url   path: '1.3.4',
+55 verbose parsed url   href: '1.3.4' }
+56 verbose addNamed [ 'npm', '1.3.4' ]
+57 verbose addNamed [ '1.3.4', '1.3.4' ]
+58 silly lockFile 6563a3cc-npm-1-3-4 npm@1.3.4
+59 verbose lock npm@1.3.4 /Users/max/.npm/6563a3cc-npm-1-3-4.lock
+60 verbose registry.get npm not expired, no request
+61 silly lockFile 68ca4f9e-js-org-npm-npm-1-5-0-alpha-3-tgz https://registry.npmjs.org/npm/-/npm-1.5.0-alpha-3.tgz
+62 verbose lock https://registry.npmjs.org/npm/-/npm-1.5.0-alpha-3.tgz /Users/max/.npm/68ca4f9e-js-org-npm-npm-1-5-0-alpha-3-tgz.lock
+63 verbose addRemoteTarball [ 'https://registry.npmjs.org/npm/-/npm-1.5.0-alpha-3.tgz',
+63 verbose addRemoteTarball   '4c7a8bea944d9d78c0658ed9108e0971ae449996' ]
+64 info retry fetch attempt 1 at 17:21:53
+65 verbose fetch to= /var/folders/_j/pj1bjrq57057t2rs1wz9cql40000gn/T/npm-34818-TLBXKAMn/1405718513101-0.20459272782318294/tmp.tgz
+66 verbose registry.get npm not expired, no request
+67 http GET https://registry.npmjs.org/npm/-/npm-1.5.0-alpha-3.tgz
+68 silly lockFile 6563a3cc-npm-1-3-4 npm@1.3.4
+69 silly lockFile 6563a3cc-npm-1-3-4 npm@1.3.4
+70 error Error: EACCES, open '/Users/max/.npm/npm/1.3.4/package/package.json'
+70 error  { [Error: EACCES, open '/Users/max/.npm/npm/1.3.4/package/package.json']
+70 error   errno: 3,
+70 error   code: 'EACCES',
+70 error   path: '/Users/max/.npm/npm/1.3.4/package/package.json',
+70 error   parent: 'cordova-lib' }
+71 error Please try running this command again as root/Administrator.
+72 error System Darwin 13.2.0
+73 error command "node" "/usr/local/bin/npm" "update" "npm" "-g" "--prefix" "/usr/local"
+74 error cwd /Users/max/Dev/TutorialSeries
+75 error node -v v0.10.29
+76 error npm -v 1.4.9
+77 error path /Users/max/.npm/npm/1.3.4/package/package.json
+78 error code EACCES
+79 error errno 3
+80 error stack Error: EACCES, open '/Users/max/.npm/npm/1.3.4/package/package.json'
+81 verbose exit [ 3, true ]

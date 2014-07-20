@@ -117,3 +117,21 @@ h1{
 .panel{
 	font-size: large;
 }
+
+
+.comment_gif{
+	background-size:contain;
+	text-align: center;
+}
+
+.comment_meat{
+	padding: 2em;
+}
+
+.comment_btns{
+	float:right;
+	margin-bottom: 1em;
+}
+
+.comment{
+}
