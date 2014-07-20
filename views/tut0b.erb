@@ -1,0 +1,392 @@
+ <html>
+ <head>
+ 	<script src="js/jquery.min.js"></script>
+ 	<script src="js/bootstrap.min.js"></script>
+ 	<link rel="stylesheet" href="css/bootstrap.min.css"></link>
+ 	<link rel="stylesheet" href="css/font-awesome.min.css"></link>
+ 	<link rel="stylesheet" href="css/style2.css"></link>
+ 	<link rel="stylesheet" href="css/monokai_sublime.css">
+ 	<link rel="stylesheet" href="css/bootstrap-lightbox.min.css"></link>
+ 	<script type="text/javascript" src="js/bootstrap-lightbox.min.js"></script>
+ 	<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+ 	<script src="js/tuts.js"></script>
+ 	<script>hljs.initHighlightingOnLoad();</script>
+ </head>
+ <body>
+ 	<div class="row">
+ 		<div class="col-sm-2">
+ 		</div>
+ 		<div class="col-xs-12 col-sm-8">
+ 			<div class="logo">
+ 				<img src="img/octocat_obama.jpg" class="img-responsive img-rounded"></img>
+ 			</div>
+ 			<div class="title">
+ 				<h1> Git and Unix/CommandLine </h1>
+ 				<h2> Crash Course Part 0 </h2>
+ 				<h3><i class="fa fa-paperclip"></i> Unix, Git</h3>
+ 			</div>
+ 			<div class="meat">
+ 				<p> Greetings and salutations, thank you for deciding to learn more about web development and taking the extra mile to learn Unix and Git. I assure you that having these tools in your belt will make your future in Web development much easier.</p>
+
+ 				<p> Greetings and salutations, thank you for deciding to learn more about web development and taking the extra mile to learn Unix and Git. I assure you that having these tools in your belt will make your future in Web development much easier.</p>
+
+ 				<p> So what is Git? Git is two things, an internet protocol and Version-Control Software. Git has become very popular among the open source community for its sophisticated branching and merging abilities as well as being commandline friendly. Allowing it to be software and platform independent</p>
+
+ 				<p>
+ 					In this tutorial I will introduce you to the fundamental commands for Unix and Git as well as step you through how to install these technologies on your respected platforms
+ 				</p>
+
+ 				<!-- Nav tabs -->
+ 				<ul class="nav nav-tabs" role="tablist">
+ 					<li class="active"><a href="#linux" role="tab" data-toggle="tab">Linux</a></li>
+ 					<li><a href="#mac" role="tab" data-toggle="tab">Mac</a></li>
+ 					<li><a href="#windows" role="tab" data-toggle="tab">Windows</a></li>
+ 				</ul>
+
+ 				<!-- Tab panes -->
+ 				<div class="tab-content">
+ 					<!-- Linux Part -->
+ 					<div class="tab-pane fade in active" id="linux">
+ 					<br>
+					<div class="alert alert-info" role="alert">Warning: This tutorial was written on Ubuntu 14.04 LTS and Git 1.9.1. I appologize if you come across any compatibility issues.</div>
+						<h2> Step 1: Install Git</h2>
+						<p>First thing first open a terminal window</p>
+					  	<pre class="raw_code">
+keyboard: alt+ctrl+T
+or 
+hit SUPER then type in Terminal</pre>
+						<img class="img-responsive img-rounded" src="/img/tut0_1.png"/></p>
+						<p>Yours should look something like this.</p>
+						<p>Next you should install Git. Type the following into your terminal.</p>
+						<pre class="raw_code">
+sudo apt-get update && sudo apt-get install git
+						</pre>
+						<p> You should be prompted with a Sudo request. This is your admin password</p>
+						<p> Next type the following into your terminal to double check it was successfully installed</p>
+						<pre class="raw_code">
+git version
+						</pre>
+						<img class="img-responsive img-rounded" src="/img/tut0_2.png"/>
+						<div class="alert alert-danger" role="alert">If you get something along the lines of "git is unrecognizable function" Then something went wrong. run the command above again or consult the  <a href="http://git-scm.com/download/linux"> official git site</a></div>
+						<h2> Step 2: Learn a lil Unix </h2>
+						<p>Next thing is we need to give you a foundation for nativaging in the unix shell.</p>
+						<div class="alert alert-info" role="alert">Note! when you see $ before a string. This is just to express this is a unix command. For example <b>$ sudo apt-get install git</b> you are supposed to type 'sudo apt-get install git' into terminal.</div>
+						<div class="panel panel-default">
+						  <div class="panel-heading">
+						    <h3 class="panel-title">ls</h3>
+						  </div>
+						  <div class="panel-body">
+						    The command <b> ls </b> is used to list all files and folders at the current level
+						  </div>
+						</div>
+						<div class="panel panel-default">
+						  <div class="panel-heading">
+						    <h3 class="panel-title"> mkdir</h3>
+						  </div>
+						  <div class="panel-body">
+						    mkdir is short for 'make directory' so you use this command to make new folders. Example: <b>$ mkdir test_folder</b>. This will make a new folder at the current level called test_folder. Try it out for yourself and then type <b>$ ls </b>
+						  </div>
+						</div>
+						<div class="panel panel-default">
+					  		<div class="panel-heading">
+					    		<h3 class="panel-title">cd</h3>
+					  		</div>
+					  		<div class="panel-body">
+						    cd is short for 'Change Directory' so you use this command to navigate into and out of folers. Example:
+						    <b>$mkdir test && cd test</b>
+
+						    this will make a new folder called test and then put you into test. The && is just used to combine the two commands into one line. You can chain all kind of terminal commands together. 
+						  </div>
+						</div>
+						<div class="panel panel-default">
+						  <div class="panel-heading">
+						    <h3 class="panel-title">../</h3>
+						  </div>
+						  <div class="panel-body">
+						    while technically not a command, this is a way to represent the higher tier. You use this if you want to move the path up a level.
+
+						    For example: You make a folder called test and then you cded into it. Now you want to move back up to the original location. you would use <b>$ cd ../ </b> Try it out for yourself
+						  </div>
+						</div>
+						<p>If you want to learn move about these commands I recommend checking out the documentation at <a href="http://www.linfo.org/command_index.html">linfo.org</a></p>
+
+						<h2> Part 3: Lets write some code</h2>
+					
+						<p>
+							two more unix commands
+							<div class="panel panel-default">
+						  <div class="panel-heading">
+						    <h3 class="panel-title">touch</h3>
+						  </div>
+						  <div class="panel-body">
+						    <b> touch </b> is similiar to mkdir. Except instead of making new folders it is constructing a new file. For example <b> $ touch helloworld.rb</b> This will create a new blank ruby script file called helloworld
+						  </div>
+						</div>
+						<div class="panel panel-default">
+						  <div class="panel-heading">
+						    <h3 class="panel-title">nano</h3>
+						  </div>
+						  <div class="panel-body">
+						    nano is a built in terminal editor. There are many other ones but I prefer nano because of its simple Write function which I will demonstrate later. to use nano just type <b> $ nano file_name.extension</b>. Example: $ nano helloworld.rb
+						  </div>
+						</div>
+						<p>
+							Now lets make a program :D
+
+						type in <b>$ touch helloworld.rb </b>
+						and then type in <b>$ nano helloworld.rb</b>
+
+						Then type in the following
+						</p>
+						<pre>
+							<code class="ruby">
+	puts 'hello world'
+							</code>
+						</pre>
+						<p>Should look like something like this</p>
+						<img class="img-responsive img-rounded" src="/img/tut0_3.png"/>
+						then type <b> ctrl+o</b> to save it followed with <b> ctrl+x </b> to exit
+						</p>
+						<p>
+						next type in <b>$ ruby helloworld.rb</b>
+						This will tell ruby to run this new script and it should print out 'hello world'
+						</p>
+						<div class="alert alert-danger" role="alert">if you recieve message like "ruby is an unrecognized function" then you are on a version of Linux that doesn't have Ruby preinstalled. you can install it with <b> $ sudo apt-get install ruby</b> or instal <a href="http://rvm.io/">Ruby Version Manager</a></div>
+						<h2> Part 4: Git started</h2>
+						
+						<p> Now we have a program lets use some version control. Type in the following 4 commands in sequence</p>
+						<pre class="raw_code">
+	git init
+	git add -A
+	git status
+	git commit -m "initialize"
+						</pre>
+						<p>
+						Does yours look like mine??
+						</p>
+						<img class="img-responsive img-rounded" src="/img/tut0_4.png"/>
+						<p>
+							Lets break it down line by line 
+						</p>
+						<p> <b> git init</b>
+						This is initializing an empty git repo at the current location
+						</p>
+						<p> <b> git add -A</b>
+						<em> git add</em> adds files to the git repo. For example, <b>$ git add helloworld.rb</b> would also have added our file. However, we used the suffix -A instead because it searches and finds all valid options and adds them.
+						</p>
+						<p> <b> git status</b>
+						Status states whats current on the stage. This step isn't necessary but I want to exspose some of the internal working of git. You can think of it like this: In a git repo, a file has 3 states [ indepenent, on stage , committed]. A commited file is a file with a history in the repo, an independent file is not a part of the repo. Either it hasn't been added to or it demeed unneceasry anymore and was removed from the repo. The final one is the stage. This is what status tells us, the stage is important because these are the files of interest for this commit. Its how git determines what files are going to cause merge conflicts. It'll be come clearer the more we play with git.  
+						</p>
+						<p> <b> git commit -m "initialize"</b>
+						Commits are the cornerstone of git. Commits are the nodes in the branching graphs in Git. For those unfamiliar with graph thoery, commits are the different version builds they are solid merged states. Git can revert back to any git commit. Each on of those dots are a different commit. The current build is at dev but you could move the program back to a previous node like feature_x and change all of ur current files back to that old state.
+						</p>
+						<img class="img-rounded img-responsive" src="http://gitguru.com/wp-content/uploads/2009/02/sd_merge.png"></img>
+
+						<h2> Part 5: Do some branching</h2>
+					
+						<p> 
+						Hey so we have a git repo made with an initial node....why dont we start playing around with this :D
+						</p>
+						<p> open helloworld.rb up again with nano </p>
+						<p><b>$ nano helloworld.rb</b></p>
+						<pre>
+							<code class="ruby">
+	puts "hello world"
+	puts "My name is YOUR_NAME"
+							</code>
+						</pre>
+						<p> Now save it and run it with <b> $ ruby helloworld.rb</b> It should have printed out both lines</p>
+						<p> Now lets save your progress with</p>
+						<pre class="raw_code">
+	git add -A
+	git commit -m "added one more line"
+						</pre>
+						<p> Now your git is up to date. However...what if we wanted to undo this change? well one way is to move back a commit</p>
+						<p> We accomplish this by typing in the following</p>
+						<pre class="raw_code">
+	git reset --hard HEAD~1
+						</pre>
+						<div class="alert alert-warning" role="alert"><b>Note:</b> That is HEAD~1 with a tilde not a minus sign</div>
+						<p> Now that should have removed our changes and reverted us back to the old version. You can check this out by typing in <b> $ ruby helloworld.rb</b>. While this solution works its like killing a fly with a bazooka</p>
+						<p> Now we can always just edit what we want to undo and just make a new commit. However when handling thousands of files...that option isn't a small task. So why don't we employ a more sophisticated solution to a making a minor change. </p>
+						<p> open Hello world up again using nano <b> $ nano helloworld.rb</b> and copy the following: </p>
+						<pre> 
+							<code class="ruby">
+	puts "Base Commit"
+
+	class Foo
+	  attr_accessor :bar
+	  def initialize(b)
+	    @bar = b
+	  end
+	end
+
+	f = Foo.new("FuzzBuzz")
+	puts f.bar
+							</code>
+						</pre>
+						<p> Now add and commit. Ex: <b>$ git add -A && git commit -m "Base Commit"</b></p>
+						<p> If you want to see what just happened to your git repo use the command <b>$git show</b>. This shows you the commit message as well as showing you the different changes made at this level. You can go and manual undo those changes</p>
+						<p> Next lets do some branching. Branches are useful for when you want to develop a particular feature or make a major change but don't know how it will affect the rest of the system. So you create a seperate version just for yourself to experiement. Then when you have solved all the issues you can merge it with the master</p>
+
+						<pre class="raw_code">
+	git branch branching_method
+	git checkout branching_method
+						</pre>
+						<p><b>$ git branch BRANCH_NAME</b> makes a new git branch</p>
+						<p><b>$ git checkout BRANCH_NAME</b> moves the HEAD pointer to this named branch</p>
+						<p> You can actually combine the two commands into <b>$ git checkout -b BRANCH_NAME </b></p>
+						<p> Now remove everything in helloworld.rb and copy this:</p>
+						<pre>
+							<code class="ruby">
+	puts "Branching Branch"
+
+	class Foo
+	  attr_accessor :bar
+	  def initialize(b)
+	    @bar = b
+	  end
+
+	  def branching_method
+	    "branching_method"
+	  end
+	end
+
+	f = Foo.new("FuzzBuzz")
+	puts f.bar
+							</code>
+						</pre>
+
+						<p> Now lets add these changes and commit them. <b>$ git commit -a -m "added branching method to class"</b> </p>
+						<p> When you run $ruby helloworld.rb you will notice it only says <b>Branching Branch \n FuzzBuzz</b></p>
+						<p> However, if you type in <b>$git checkout master</b> and run <b> $ruby helloworld.rb</b> it should print out <b>Base Branch \n FuzzBuzz</b></p>
+
+						<h2> Part 6: Merging </h2>
+
+						<p> The next major topic is merging. Merging allows you to combine different branches together. I will demonstrate how to use git's tools to handle merge conflictions.</p><p> Now lets make sure our head is at master <b> $git checkout master</b> now lets change the code to helloworld.rb</p>
+
+						<pre>
+							<code class="ruby">
+	puts "Local Branch"
+
+	class Foo
+	  attr_accessor :bar
+	  def initialize(b)
+	    @bar = b
+	  end
+
+	  def local_branch
+	    "Local branch method"
+	  end 
+	end
+
+	f = Foo.new("FuzzBuzz")
+	puts f.bar
+
+							</code>
+						</pre>
+						<p> now add and commit <b> $git commit -a -m "Local Branch"</b></p>
+
+						<p> run <b> $ ruby helloworld.rb</b></p>
+						<p> Should return <b> Local Branch FuzzBuzz </b></p>
+						<p> okay now run <b>$ git merge branching_branch </b></p>
+						<p> You should get this message</p>
+						<pre class="raw_code">
+	$ git merge branching_branch
+	Auto-merging helloworld.rb
+	CONFLICT (content): Merge conflict in helloworld.rb
+	Automatic merge failed; fix conflicts and then commit the result.
+						</pre>
+						<p> So we now need to clean up and resolve the merge issues before we can proceed. Type in <b> $git status </b> </p>
+
+						<img src="/img/tut0_git_status.png" class="img-responsive img-rounded">
+
+						<p> It will state we have merge issues. So we need to resolve this. We can manually go through our files and find the instances where there are <===HEAD== like comments. Unforunately we could easily miss one going that route. Instead we will use git's mergetools</p>
+
+						<p> For this tutorial, we will be using kdiff3 since it is a cross platform program. To install kdiff3 for ubuntu, type in this code into the terminal<b> $ sudo apt-get install kdiff3</b></p>
+
+						<p> After a successful installation now run this command to configure git to use it. <b>$ git config --global merge.tool kdiff3</b></p>
+
+						<p>Now type in <b>$git mergetool </b> and then enter</p>
+						<img src="/img/tut0_7.png" class="img-responsive img-rounded">
+						<img src="/img/tut0_8.png" class="img-responsive img-rounded">
+
+						<p> This will bring up the kdiff3 tool. It allows use to handle 3 way merging of our files as well as navigate us between conflicts.</p>
+
+						<p> The structure of these 4 windows is as such:</p>
+						<pre class="raw_code">
+	| Base | Local | Remote |
+	|        Merge          |
+						</pre>
+
+						<p>so Local is the current branch we are at the end of master </p>
+						<p>Remote is the branch we are merging with so Branching_branch</p>
+						<p>Base is the last commit these two branches have in common and Merge is the result we want. Just edit Merge how you want.  </p>
+
+						<p> A few buttons to keep in mind are the A,B,C buttons. They import the differences of A:Base, B:Local and C:Remote directly into Merge. Once Merge is how you want it to be, hit the save icon in the left corner.</p>
+						<p> The first conflict we don't want any of the three choices. So we will skip it. Use the 3 Downarrow button. Now select B & C. Based upon how these methods were spaced out. They may take up the same line so manual editing may be required. Hit the 3 Uparrow button to return to the first conflict. Now just pick one from A,B,C and just type in the following: <b> puts "Merged Commit"</b></p>
+						<p> The merged result should look like this:</p>
+						<pre>
+							<code class="ruby">
+	puts "Merged Commit"
+
+	class Foo
+	  attr_accessor :bar
+	  def initialize(b)
+	    @bar = b
+	  end
+
+	  def local_method
+	    return true
+	  end
+	  
+	  def branching_method
+	    return true
+	  end
+	end
+
+	f = Foo.new("FuzzBuzz")
+	puts f.bar
+
+							</code>
+						</pre>
+
+						<p> Now save and quit this program</p>
+						<p> run <b>$ git commit -a -m "Fixed merge conflicts"</b></p>
+						<p> Then run <b> $git clean -f</b>. This will remove any no-longer necessary merge conflicting files</p>
+						<p> and run <b> $ ruby helloworld.rb</b> again.</p>
+
+						<pre class="raw_code">
+	Merged Commit
+	FuzzBuzz
+						</pre>
+						<p> If that was your output, then congratulations you have successfully merged the two branches. The only thing left is to host it online</p>
+
+						<h2> Part 7: Beam me up Octocat</h2>
+			
+						<p> The final part of this tutorial is for you to get yourself a github account, make a new remote repo and to push this repo up to the cloud </p>
+
+						<p> Go to <a href="http://github.com">Github</a> and make yourself a new account. Remember this new name and password you will need it later. Then after you finish making an account click on the new repo button. Then copy that new repos url. Finally put in these commands</p>
+
+						<p> For example, my repo's url was <b> https://github.com/honeycodedbear/GitTestRuby</b></p>
+						<pre class="raw_code">
+	git remote add origin YOUR_REPOS_URL
+	git push origin master
+						</pre>
+						<p> You should be prompted for your email/username and a password. Hopefully you haven't forgotten it</p>
+						<p> If all goes well this should your final result</p>
+						<img src="/img/tut0_9.png" class="img-responsive img-rounded">
+
+						<p> One last thing, move your self to a differnet directory. Then type in the following: <b> $git clone YOUR_GITHUB_REPO_URL</b> This command will download and copy your git repo to your machine at that location. Now you have learned all the basics of Git and UNIX. Congratulations you have finished this tutorial :D</p>
+						<p> Hopefully your knowledge of Git branching, merging, cloning and hosting will allow you to work collarbately without programmers.</p>
+
+						<p> if you are interested in learning more about Git then feel free to check out this <a href="http://git-scm.com/book/">site</a></p>
+						</div>
+ 				</div>
+ 			</div>
+ 		</div>
+ 		<div class="col-sm-2">
+ 		</div>
+ 	</div>
+ </body>
+ </html>
