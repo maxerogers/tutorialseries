@@ -186,7 +186,7 @@ git version
  						</p>
  						<pre>
  							<code class="ruby">
- 								puts 'hello world'
+puts 'hello world'
  							</code>
  						</pre>
  						<p>Should look like something like this</p>
@@ -202,10 +202,10 @@ git version
 
  					<p> Now we have a program lets use some version control. Type in the following 4 commands in sequence</p>
  					<pre class="raw_code">
- 						git init
- 						git add -A
- 						git status
- 						git commit -m "initialize"
+git init
+git add -A
+git status
+git commit -m "initialize"
  					</pre>
  					<p>
  						Does yours look like mine??
@@ -237,20 +237,20 @@ git version
  					<p><b>$ nano helloworld.rb</b></p>
  					<pre>
  						<code class="ruby">
- 							puts "hello world"
- 							puts "My name is YOUR_NAME"
+puts "hello world"
+puts "My name is YOUR_NAME"
  						</code>
  					</pre>
  					<p> Now save it and run it with <b> $ ruby helloworld.rb</b> It should have printed out both lines</p>
  					<p> Now lets save your progress with</p>
  					<pre class="raw_code">
- 						git add -A
- 						git commit -m "added one more line"
+git add -A
+git commit -m "added one more line"
  					</pre>
  					<p> Now your git is up to date. However...what if we wanted to undo this change? well one way is to move back a commit</p>
  					<p> We accomplish this by typing in the following</p>
  					<pre class="raw_code">
- 						git reset --hard HEAD~1
+git reset --hard HEAD~1
  					</pre>
  					<div class="alert alert-warning" role="alert"><b>Note:</b> That is HEAD~1 with a tilde not a minus sign</div>
  					<p> Now that should have removed our changes and reverted us back to the old version. You can check this out by typing in <b> $ ruby helloworld.rb</b>. While this solution works its like killing a fly with a bazooka</p>
@@ -258,17 +258,17 @@ git version
  					<p> open Hello world up again using nano <b> $ nano helloworld.rb</b> and copy the following: </p>
  					<pre> 
  						<code class="ruby">
- 							puts "Base Commit"
+puts "Base Commit"
 
- 							class Foo
- 							attr_accessor :bar
- 							def initialize(b)
- 							@bar = b
- 							end
- 							end
+class Foo
+attr_accessor :bar
+def initialize(b)
+@bar = b
+end
+end
 
- 							f = Foo.new("FuzzBuzz")
- 							puts f.bar
+f = Foo.new("FuzzBuzz")
+puts f.bar
  						</code>
  					</pre>
  					<p> Now add and commit. Ex: <b>$ git add -A && git commit -m "Base Commit"</b></p>
@@ -285,21 +285,21 @@ git version
  					<p> Now remove everything in helloworld.rb and copy this:</p>
  					<pre>
  						<code class="ruby">
- 							puts "Branching Branch"
+puts "Branching Branch"
 
- 							class Foo
- 							attr_accessor :bar
- 							def initialize(b)
- 							@bar = b
- 							end
+class Foo
+attr_accessor :bar
+def initialize(b)
+@bar = b
+end
 
- 							def branching_method
- 							"branching_method"
- 							end
- 							end
+def branching_method
+"branching_method"
+end
+end
 
- 							f = Foo.new("FuzzBuzz")
- 							puts f.bar
+f = Foo.new("FuzzBuzz")
+puts f.bar
  						</code>
  					</pre>
 
@@ -313,21 +313,21 @@ git version
 
  					<pre>
  						<code class="ruby">
- 							puts "Local Branch"
+puts "Local Branch"
 
- 							class Foo
- 							attr_accessor :bar
- 							def initialize(b)
- 							@bar = b
- 							end
+class Foo
+attr_accessor :bar
+def initialize(b)
+@bar = b
+end
 
- 							def local_branch
- 							"Local branch method"
- 							end 
- 							end
+def local_branch
+"Local branch method"
+end 
+end
 
- 							f = Foo.new("FuzzBuzz")
- 							puts f.bar
+f = Foo.new("FuzzBuzz")
+puts f.bar
 
  						</code>
  					</pre>
@@ -338,10 +338,10 @@ git version
  					<p> okay now run <b>$ git merge branching_branch </b></p>
  					<p> You should get this message</p>
  					<pre class="raw_code">
- 						$ git merge branching_branch
- 						Auto-merging helloworld.rb
- 						CONFLICT (content): Merge conflict in helloworld.rb
- 						Automatic merge failed; fix conflicts and then commit the result.
+$ git merge branching_branch
+Auto-merging helloworld.rb
+CONFLICT (content): Merge conflict in helloworld.rb
+Automatic merge failed; fix conflicts and then commit the result.
  					</pre>
  					<p> So we now need to clean up and resolve the merge issues before we can proceed. Type in <b> $git status </b> </p>
 
@@ -349,7 +349,23 @@ git version
 
  					<p> It will state we have merge issues. So we need to resolve this. We can manually go through our files and find the instances where there are <===HEAD== like comments. Unforunately we could easily miss one going that route. Instead we will use git's mergetools</p>
 
- 					<p> For this tutorial, we will be using kdiff3 since it is a cross platform program. To install kdiff3 for ubuntu, type in this code into the terminal<b> $ sudo apt-get install kdiff3</b></p>
+ 					<p> For this tutorial, we will be using kdiff3 since it is a cross platform program. 
+ 					<% if os == "mac" %>
+ 						To install kdiff3 for mac, type in this code into the terminal<b> $ brew install kdiff3</b></p>
+ 					<% elsif os == "linux" %>
+ 						To install kdiff3 for ubuntu, type in this code into the terminal<b> $ sudo apt-get install kdiff3</b></p>
+ 					<% else %>
+ 						To install kdiff3 for windows, download and install this program and then edit the file at "C:/Users/YOUR_USER/.gitconfig" with your text editor. Add these lines to the bottom of it
+ 						<pre class="raw_code">
+[merge]
+	tool = kdiff3
+[mergetool "kdiff3"]
+	path = C:/Program Files/KDiff3/kdiff3.exe
+	keepBackup = false
+	trustExitCode = true
+ 						</pre> 
+ 					<% end %>
+ 					
 
  					<p> After a successful installation now run this command to configure git to use it. <b>$ git config --global merge.tool kdiff3</b></p>
 
@@ -361,8 +377,8 @@ git version
 
  					<p> The structure of these 4 windows is as such:</p>
  					<pre class="raw_code">
- 						| Base | Local | Remote |
- 						|        Merge          |
+| Base | Local | Remote |
+|        Merge          |
  					</pre>
 
  					<p>so Local is the current branch we are at the end of master </p>
@@ -374,25 +390,25 @@ git version
  					<p> The merged result should look like this:</p>
  					<pre>
  						<code class="ruby">
- 							puts "Merged Commit"
+puts "Merged Commit"
 
- 							class Foo
- 							attr_accessor :bar
- 							def initialize(b)
- 							@bar = b
- 							end
+class Foo
+attr_accessor :bar
+def initialize(b)
+@bar = b
+end
 
- 							def local_method
- 							return true
- 							end
+def local_method
+return true
+end
 
- 							def branching_method
- 							return true
- 							end
- 							end
+def branching_method
+return true
+end
+end
 
- 							f = Foo.new("FuzzBuzz")
- 							puts f.bar
+f = Foo.new("FuzzBuzz")
+puts f.bar
 
  						</code>
  					</pre>
@@ -403,8 +419,8 @@ git version
  					<p> and run <b> $ ruby helloworld.rb</b> again.</p>
 
  					<pre class="raw_code">
- 						Merged Commit
- 						FuzzBuzz
+Merged Commit
+FuzzBuzz
  					</pre>
  					<p> If that was your output, then congratulations you have successfully merged the two branches. The only thing left is to host it online</p>
 
@@ -416,8 +432,8 @@ git version
 
  					<p> For example, my repo's url was <b> https://github.com/honeycodedbear/GitTestRuby</b></p>
  					<pre class="raw_code">
- 						git remote add origin YOUR_REPOS_URL
- 						git push origin master
+git remote add origin YOUR_REPOS_URL
+git push origin master
  					</pre>
  					<p> You should be prompted for your email/username and a password. Hopefully you haven't forgotten it</p>
  					<p> If all goes well this should your final result</p>
