@@ -15,6 +15,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    browser (0.6.0)
     builder (3.2.2)
     daemons (1.1.9)
     eventmachine (1.0.3)
@@ -22,6 +23,7 @@ GEM
     json (1.8.1)
     minitest (5.4.0)
     pg (0.17.1)
+    pg (0.17.1-x86-mingw32)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
@@ -51,9 +53,11 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   activerecord
+  browser
   pg
   rake
   shotgun
