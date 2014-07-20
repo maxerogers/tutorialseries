@@ -5,7 +5,6 @@ gem "activerecord"
 gem "sinatra-activerecord"
 gem "rake"
 gem "browser"
-gem "thin"
 
 group :development do 
 	gem 'shotgun'
