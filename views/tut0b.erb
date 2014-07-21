@@ -10,13 +10,15 @@
  	<script type="text/javascript" src="js/bootstrap-lightbox.min.js"></script>
  	<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
  	<script src="js/tuts.js"></script>
+ 	<script src="js/tutBroswerOS.js"></script>
  	<script>hljs.initHighlightingOnLoad();</script>
  </head>
  <body>
  	<% 
  		os = params[:os]
- 		os ||= @browser.platform 
+ 		os ||= @browser.platform
  	%>
+ 	<%= '<input id="os" type="hidden" value="'+os.to_s+'">' %>
  	<div class="row">
  		<div class="col-sm-2">
  		</div>
@@ -178,20 +180,25 @@ git version
  						</div>
  						<p>
  							Now lets make a program :D
-
+ 							<% if os == "windows" %>
+ 							Create a new file in that directory with your favorite editor like Sublime or use the unix command <b> touch.</b> Name the file <b> helloworld.rb </b> Now open it with your favorite editor.
+ 							<% else %>
  							type in <b>$ touch helloworld.rb </b>
  							and then type in <b>$ nano helloworld.rb</b>
+ 							<% end %>
 
- 							Then type in the following
+ 							Then type in the following into the file
  						</p>
  						<pre>
  							<code class="ruby">
 puts 'hello world'
  							</code>
  						</pre>
+ 						<% unless os == "windows" %>
  						<p>Should look like something like this</p>
  						<img class="img-responsive img-rounded" src="/img/tut0_3.png"/>
- 						then type <b> ctrl+o</b> to save it followed with <b> ctrl+x </b> to exit
+ 						<p> then type <b> ctrl+o</b> to save it followed with <b> ctrl+x </b> to exit </p>
+ 						<% end %>
  					</p>
  					<p>
  						next type in <b>$ ruby helloworld.rb</b>
