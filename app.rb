@@ -20,6 +20,10 @@ get '/tut0' do
 	erb :tut0b
 end
 
+get "/tut1" do 
+	erb :tut1
+end
+
 
 after do
   # Close the connection after the request is done so that we don't
