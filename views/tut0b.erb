@@ -159,45 +159,60 @@ git version
  					<h2> Part 3: Lets write some code</h2>
 
  					<p>
- 						two more unix commands
- 						<div class="panel panel-default">
- 							<div class="panel-heading">
- 								<h3 class="panel-title">touch</h3>
- 							</div>
- 							<div class="panel-body">
- 								<b> touch </b> is similiar to mkdir. Except instead of making new folders it is constructing a new file. For example <b> $ touch helloworld.rb</b> This will create a new blank ruby script file called helloworld
- 							</div>
- 						</div>
- 						<div class="panel panel-default">
- 							<div class="panel-heading">
- 								<h3 class="panel-title">nano</h3>
- 							</div>
- 							<div class="panel-body">
- 								nano is a built in terminal editor. There are many other ones but I prefer nano because of its simple Write function which I will demonstrate later. to use nano just type <b> $ nano file_name.extension</b>. Example: $ nano helloworld.rb
- 							</div>
- 						</div>
- 						<p>
- 							Now lets make a program :D
+ 						<% if os == "mac" || os == "linux" %>
+ 							two more unix commands
+	 						<div class="panel panel-default">
+	 							<div class="panel-heading">
+	 								<h3 class="panel-title">touch</h3>
+	 							</div>
+	 							<div class="panel-body">
+	 								<b> touch </b> is similiar to mkdir. Except instead of making new folders it is constructing a new file. For example <b> $ touch helloworld.rb</b> This will create a new blank ruby script file called helloworld
+	 							</div>
+	 						</div>
+	 						<div class="panel panel-default">
+	 							<div class="panel-heading">
+	 								<h3 class="panel-title">nano</h3>
+	 							</div>
+	 							<div class="panel-body">
+	 								nano is a built in terminal editor. There are many other ones but I prefer nano because of its simple Write function which I will demonstrate later. to use nano just type <b> $ nano file_name.extension</b>. Example: $ nano helloworld.rb
+	 							</div>
+	 						</div>
+	 						<p>
+	 							Now lets make a program :D
 
- 							type in <b>$ touch helloworld.rb </b>
- 							and then type in <b>$ nano helloworld.rb</b>
+	 							type in <b>$ touch helloworld.rb </b>
+	 							and then type in <b>$ nano helloworld.rb</b>
 
- 							Then type in the following
- 						</p>
- 						<pre>
- 							<code class="ruby">
+	 							Then type in the following
+	 						</p>
+	 						<pre>
+ 								<code class="ruby">
 puts 'hello world'
- 							</code>
- 						</pre>
- 						<p>Should look like something like this</p>
- 						<img class="img-responsive img-rounded" src="/img/tut0_3.png"/>
- 						then type <b> ctrl+o</b> to save it followed with <b> ctrl+x </b> to exit
+ 								</code>
+ 							</pre>
+
+ 							<p>Should look like something like this</p>
+	 						<img class="img-responsive img-rounded" src="/img/tut0_3.png"/>
+	 						then type <b> ctrl+o</b> to save it followed with <b> ctrl+x </b> to exit
+ 						<% else %>
+ 							<p> Now create a new file <b> helloworld.rb</b> at the current directory. And then open it with your favorite text editor. Then copy and paste the following into it.</p>
+
+
+ 							<div class="alert alert-info" role="alert">if you are unsure what text editor to use. I recommend Sublime Text 2, Notepad++ or regular old Notepad. Also note by default the location of the Rail prompt is C:/Sites. If you happened to chose Notepad, you will need to change the file types because by default notepad's browser only looks for .txt and other regular text documents. </div>
+
+							<pre>
+ 								<code class="ruby">
+puts 'hello world'
+ 								</code>
+ 							</pre>
+ 						<% end %>
  					</p>
+
  					<p>
  						next type in <b>$ ruby helloworld.rb</b>
  						This will tell ruby to run this new script and it should print out 'hello world'
  					</p>
- 					<div class="alert alert-danger" role="alert">if you recieve message like "ruby is an unrecognized function" then you are on a version of Linux that doesn't have Ruby preinstalled. you can install it with <b> $ sudo apt-get install ruby</b> or instal <a href="http://rvm.io/">Ruby Version Manager</a></div>
+ 					<%= "<div class=\"alert alert-danger\" role=\"alert\">if you recieve message like 'ruby is an unrecognized function' then you are on a version of Linux that doesn't have Ruby preinstalled. you can install it with <b> $ sudo apt-get install ruby</b> or instal <a href=\"http://rvm.io/\">Ruby Version Manager</a></div>" if os == "linux" %>
  					<h2> Part 4: Git started</h2>
 
  					<p> Now we have a program lets use some version control. Type in the following 4 commands in sequence</p>
