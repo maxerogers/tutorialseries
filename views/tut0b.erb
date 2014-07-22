@@ -178,6 +178,8 @@ git version
  								nano is a built in terminal editor. There are many other ones but I prefer nano because of its simple Write function which I will demonstrate later. to use nano just type <b> $ nano file_name.extension</b>. Example: $ nano helloworld.rb
  							</div>
  						</div>
+ 						<%='<div class="alert alert-warning" role="alert"><b>Note:</b> That nano isn\'t available for the windows console. It is a built in application for the unix shell. </div>' if os == 'windows' %>
+
  						<p>
  							Now lets make a program :D
  							<% if os == "windows" %>
