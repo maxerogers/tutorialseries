@@ -3,11 +3,23 @@
 		<script src="js/jquery.min.js"></script>
 		<link rel="stylesheet" href="css/font-awesome.min.css"></link>
 		<link rel="stylesheet" href="css/bootstrap.min.css"></link>
+		<link rel="stylesheet" href="css/monokai.css"></link>
 		<link rel="stylesheet" href="css/style3.css"></link>
-
 		<link rel="icon" 
       		  type="image/jpg" 
       		  href="/img/fav_icon.jpg" />
+      	<script src="js/rainbow-custom.min.js"></script>
+      	<script>
+      		/*
+			 * do some jQuery magic on load
+			 */
+			$(document).ready(function() {
+			    function showHiddenParagraphs() {
+			        $("p.hidden").fadeIn(500);
+			    }
+			    setTimeout(showHiddenParagraphs, 1000);
+			});
+      	</script>
 	</head>
 	<body>
 		<%= yield %>
