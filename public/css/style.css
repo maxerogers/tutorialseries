@@ -53,3 +53,15 @@ h3{
 .tags{
 	color: #aaa;
 }
+
+.container{
+	width: 67%;
+	margin-left: 16%;
+}
+
+@media (max-width: 600px) {
+  	.container {
+    	width:100%; 
+    	margin-left: 0; 
+	}
+}

@@ -1,0 +1,23 @@
+.logo{
+	margin: auto;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+body{
+	margin-bottom: 2em;
+}
+
+pre{
+	border: 0;
+}
+
+.well{
+	background-color: #000;
+	color: #FFF;
+}
+
+code{
+	color: white;
+	background-color: rgba(0,0,0,0);
+}

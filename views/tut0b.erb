@@ -10,13 +10,15 @@
  	<script type="text/javascript" src="js/bootstrap-lightbox.min.js"></script>
  	<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
  	<script src="js/tuts.js"></script>
+ 	<script src="js/tutBroswerOS.js"></script>
  	<script>hljs.initHighlightingOnLoad();</script>
  </head>
  <body>
  	<% 
  		os = params[:os]
- 		os ||= browser.platform 
+ 		os ||= @browser.platform
  	%>
+ 	<%= '<input id="os" type="hidden" value="'+os.to_s+'">' %>
  	<div class="row">
  		<div class="col-sm-2">
  		</div>
@@ -30,8 +32,6 @@
  				<h3><i class="fa fa-paperclip"></i> Unix, Git</h3>
  			</div>
  			<div class="meat">
- 				<p> Greetings and salutations, thank you for deciding to learn more about web development and taking the extra mile to learn Unix and Git. I assure you that having these tools in your belt will make your future in Web development much easier.</p>
-
  				<p> Greetings and salutations, thank you for deciding to learn more about web development and taking the extra mile to learn Unix and Git. I assure you that having these tools in your belt will make your future in Web development much easier.</p>
 
  				<p> So what is Git? Git is two things, an internet protocol and Version-Control Software. Git has become very popular among the open source community for its sophisticated branching and merging abilities as well as being commandline friendly. Allowing it to be software and platform independent</p>
@@ -177,24 +177,29 @@ git version
 	 								nano is a built in terminal editor. There are many other ones but I prefer nano because of its simple Write function which I will demonstrate later. to use nano just type <b> $ nano file_name.extension</b>. Example: $ nano helloworld.rb
 	 							</div>
 	 						</div>
+ 						<%='<div class="alert alert-warning" role="alert"><b>Note:</b> That nano isn\'t available for the windows console. It is a built in application for the unix shell. </div>' if os == 'windows' %>
+
 	 						<p>
 	 							Now lets make a program :D
-
+ 							<% if os == "windows" %>
+ 							Create a new file in that directory with your favorite editor like Sublime or use the unix command <b> touch.</b> Name the file <b> helloworld.rb </b> Now open it with your favorite editor.
+ 							<% else %>
 	 							type in <b>$ touch helloworld.rb </b>
 	 							and then type in <b>$ nano helloworld.rb</b>
+ 							<% end %>
 
-	 							Then type in the following
+ 							Then type in the following into the file
 	 						</p>
 	 						<pre>
  								<code class="ruby">
 puts 'hello world'
  								</code>
  							</pre>
-
+ 						<% unless os == "windows" %>
  							<p>Should look like something like this</p>
 	 						<img class="img-responsive img-rounded" src="/img/tut0_3.png"/>
-	 						then type <b> ctrl+o</b> to save it followed with <b> ctrl+x </b> to exit
- 						<% else %>
+ 						<p> then type <b> ctrl+o</b> to save it followed with <b> ctrl+x </b> to exit </p>
+ 						<% end %>
  							<p> Now create a new file <b> helloworld.rb</b> at the current directory. And then open it with your favorite text editor. Then copy and paste the following into it.</p>
 
 
@@ -248,8 +253,8 @@ git commit -m "initialize"
  					<p> 
  						Hey so we have a git repo made with an initial node....why dont we start playing around with this :D
  					</p>
- 					<p> open helloworld.rb up again with nano </p>
- 					<p><b>$ nano helloworld.rb</b></p>
+ 					<p> open helloworld.rb up again with <%= os == "windows" ? 'your editor </p>' : 'nano </p><p><b>$ nano helloworld.rb</b></p>' %> 
+ 					
  					<pre>
  						<code class="ruby">
 puts "hello world"
@@ -270,7 +275,7 @@ git reset --hard HEAD~1
  					<div class="alert alert-warning" role="alert"><b>Note:</b> That is HEAD~1 with a tilde not a minus sign</div>
  					<p> Now that should have removed our changes and reverted us back to the old version. You can check this out by typing in <b> $ ruby helloworld.rb</b>. While this solution works its like killing a fly with a bazooka</p>
  					<p> Now we can always just edit what we want to undo and just make a new commit. However when handling thousands of files...that option isn't a small task. So why don't we employ a more sophisticated solution to a making a minor change. </p>
- 					<p> open Hello world up again using nano <b> $ nano helloworld.rb</b> and copy the following: </p>
+ 					<p> open Hello world up again using <%= os == 'windows' ? 'your editor' : 'nano <b> $ nano helloworld.rb</b>' %> and copy the following: </p>
  					<pre> 
  						<code class="ruby">
 puts "Base Commit"
@@ -291,8 +296,8 @@ puts f.bar
  					<p> Next lets do some branching. Branches are useful for when you want to develop a particular feature or make a major change but don't know how it will affect the rest of the system. So you create a seperate version just for yourself to experiement. Then when you have solved all the issues you can merge it with the master</p>
 
  					<pre class="raw_code">
- 						git branch branching_method
- 						git checkout branching_method
+git branch branching_method
+git checkout branching_method
  					</pre>
  					<p><b>$ git branch BRANCH_NAME</b> makes a new git branch</p>
  					<p><b>$ git checkout BRANCH_NAME</b> moves the HEAD pointer to this named branch</p>

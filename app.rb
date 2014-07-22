@@ -1,20 +1,27 @@
 require "sinatra"
+require "slim"
 require 'sinatra/activerecord'
 require "browser"
 require './config/environments' #database configuration
 require './models/model'        #Model class
 
+set :slim, :pretty => true
+
 get '/' do
   erb :index
 end
 
-get '/tut0' do
+get '/tut0_old' do
 	erb :tut0
 end
 
-get '/tut0b' do
-	@browser = Browser.new(:ua => "some string", :accept_language => "en-us")
+get '/tut0' do
+	@browser = Browser.new(:ua => request.user_agent, :accept_language => "en-us") 
 	erb :tut0b
+end
+
+get "/tut1" do 
+	erb :tut1
 end
 
 
