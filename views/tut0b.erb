@@ -240,8 +240,8 @@ git commit -m "initialize"
  					<p> 
  						Hey so we have a git repo made with an initial node....why dont we start playing around with this :D
  					</p>
- 					<p> open helloworld.rb up again with nano </p>
- 					<p><b>$ nano helloworld.rb</b></p>
+ 					<p> open helloworld.rb up again with <%= os == "windows" ? 'your editor </p>' : 'nano </p><p><b>$ nano helloworld.rb</b></p>' %> 
+ 					
  					<pre>
  						<code class="ruby">
 puts "hello world"
@@ -262,7 +262,7 @@ git reset --hard HEAD~1
  					<div class="alert alert-warning" role="alert"><b>Note:</b> That is HEAD~1 with a tilde not a minus sign</div>
  					<p> Now that should have removed our changes and reverted us back to the old version. You can check this out by typing in <b> $ ruby helloworld.rb</b>. While this solution works its like killing a fly with a bazooka</p>
  					<p> Now we can always just edit what we want to undo and just make a new commit. However when handling thousands of files...that option isn't a small task. So why don't we employ a more sophisticated solution to a making a minor change. </p>
- 					<p> open Hello world up again using nano <b> $ nano helloworld.rb</b> and copy the following: </p>
+ 					<p> open Hello world up again using <%= os == 'windows' ? 'your editor' : 'nano <b> $ nano helloworld.rb</b>' %> and copy the following: </p>
  					<pre> 
  						<code class="ruby">
 puts "Base Commit"
@@ -283,8 +283,8 @@ puts f.bar
  					<p> Next lets do some branching. Branches are useful for when you want to develop a particular feature or make a major change but don't know how it will affect the rest of the system. So you create a seperate version just for yourself to experiement. Then when you have solved all the issues you can merge it with the master</p>
 
  					<pre class="raw_code">
- 						git branch branching_method
- 						git checkout branching_method
+git branch branching_method
+git checkout branching_method
  					</pre>
  					<p><b>$ git branch BRANCH_NAME</b> makes a new git branch</p>
  					<p><b>$ git checkout BRANCH_NAME</b> moves the HEAD pointer to this named branch</p>
