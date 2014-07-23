@@ -1,0 +1,185 @@
+<div class="row">
+	<div class="col-sm-2"></div>
+	<div class="col-sm-8 col-xs-12">
+		<header>
+			<img src="img/js.png" class="img-rounded img-responsive logo">
+			<h1> Javascript -- putting some meat on those bones</h1>
+			<h2> Crash Course Part 2 </h2>
+	 		<h2><i class="fa fa-paperclip"></i> Javascript, HTML, JQuery</h3>
+ 		</header>
+ 		<div class="meat">
+ 			<ol>
+ 				<li> Javascript? Do you mean Java? </li>
+ 				<li> Frontend?</li>
+ 				<li> JS101</li>
+ 				<li> JQuery </li>
+ 				<li> Other frameworks </li>
+ 			</ol>
+ 			<h2> Javascript? Do you mean Java? </h2>
+ 			<p>Its a common misconception that Java and Javascript are related. The only thing the two languages have in common was that they were released together for Netscape 2.0. Netscaped added Java applet support for the more profession programmer while Javascript was catered towards the more inexperienced artsy types -- The starbuck hipsters of 1996. That is where their similiarities begin and end. So what is Javascript? It is a scripting language with modular based protyping. This aspect makes it very difficult for beginners coming from Java and C++ to wrap their minds around what is going on under the hood. The purposes for Javascript is to provide an flexible language for front end manipulations. However, that doesn't mean one should take it lightly.</p>
+
+ 			<h2> Frontend? </h2>
+ 			<p>The frontend is another encompassing word for User Web experience or rather Browser behavoir. Javascript is ran entirely in the browser. This allows the developer to push some of the logic onto the end user's machine and perform seemless transformations. </p>
+
+ 			<h2> JS101</h2>
+ 			<p>Okay lets write ourselves a really simple JS hello world. </p>
+ 			<pre><code  class="language-markup"><%= h '<!DOCTYPE html>
+<html>
+	<head> </head>
+	<body>
+	<script>
+	alert("hello world");
+	</script>
+	</body>
+</html>' %></code></pre>
+			<p>Write that into your index.html file and open it in your browser. It should have a little dialog box appear with the message hello world. Congratulations you have just written your first Javascript enabled website. The Javascript is the code written between the < script > tags. Now you can actually define a different language for the script tags. There have been many pretenders that have tried to dethrone Javascript like Mircosoft's VBScript, Google's Dart. All have failed to hold the communities attention for long. However the new trend has been to extend upon Javascript like Haxe, Microsoft's TypeScript and Coffeescript. These alternatives are just reimaging of Javascript and until complie down to raw Javascript. I only mention this so you aren't confusted when your see </p>
+			<pre><code  class="language-markup"><%= h '<script type="text/Javascript"></script>' %></code></pre>
+			<p>This is more of convention than necessary. Javascript is the default scripting language in most modern browsers. However it can't hurt for legacy purposes so in the future always include the type="text/javascript" attribute. You never know, SuperAwesomeLanguageX from BigNameInc might revolutionize frontend scripting and become the new standard in 5-10 years. </p>
+			<p> Another important note, It is the convention to load raw inline javascript at the bottom of the page. This is because the browser reads in the documents line by line. Having your javascript run after the HTML and CSS have been loaded helps avoid runtime errors. Later when we introduce Jquery we will talk about an alternative to this.</p>
+			<p> Next lets do some simple variable manipulations </p>
+			<pre><code  class="language-markup"><%= h '<!DOCTYPE html>
+<html>
+	<head> </head>
+	<body>
+		<script type="text/javascript">
+			var x = 0;
+			x += 1;
+			alert("X = "+x);
+		</script>
+	</body>
+</html>' %></code></pre>
+			<p> This little snippet should return a 1 in the alert box. This may seem strange to you. There is no int, long, float or String declarations in Javascript. In Javascript there are simply variables and objects. Objects also are very different from the Java objects. I'll show case them now. Replace your old script with this new one</p>
+			<pre><code  class="language-javascript"><%= h 'var x = {};
+var y = 1;
+x["y"] = y;
+alert("X = "+x+"; Y = "+y+"; X[\"y\"] = "+x["y"]+"; X[\"x\"] = "+x["x"]);' %>
+			</code></pre>
+			<p> Your output should look something like this: 'X = [Object object]; Y =1; X["y"] = 1; X["x"] = undefined' This is because the objects in Javascript, declared with {}, are more like the data structure Dictionaries. You might know them by the name Hashes. Essentially they are an indexing catalog where you have a key value, in our example "y", and it has a corresponding value, the variable y. This fundamentally different than how Java and C++ handle objects. However a similar functionally can be achieved by assigning functions to a variable and then adding that variable to an object. This is more advanged stuff and will be covered more when he talk about modules. </p>
+			<p>Next lets talk about Javascript functions. Javascript functions have a name, parameters and a return value. In addition, functions can be assigned to variables allowing you to pass along functions to each other. This allows for an intricate and flexible style of programming known as Functional Programming. Lets check it out </p>
+			<pre><code  class="language-javascript"><%= h 'function bar(){
+return 1
+}
+function foo(bar){
+return 2+bar;
+}
+alert("result: "+foo(bar()));' %>
+			</code></pre>
+			<p> The end result should be 'result= 3'. Javascript functions don't need to return anything. If you don't have a return call in your function, it will simply return undefined. Unlike Java, functions doesn't have a defined return type.</p>
+
+			<p> One last thing before we move onto JQuery. I want to talk about the Javascript Console. If you read the previous tutorial, you might remember me mentioning it. Lets me now show you how to use it. Now in your Chrome browser, right click and then left click on inspect element. Navigate to the Console tab. You will now see a simple console. Lets print something into it. Paste in the snippet and then refresh your page. Try not to leave the console but don't worry if you already have, just reopen it.</p>
+			<pre><code  class="language-javascript"><%= h 'console.log("Hello World");' %>
+			</code></pre>
+			<p>The result should be the line 'Hello World' on the left and on the right it should state what line of code it is from and from what file. fileName:lineNumber. This is very useful for debugging javascript code. Occasionally you will run into errors, without this console you may find yourself unable to identify the issue. </p>
+			<h2>JQuery</h2>
+			<p>Now JQuery isn't necessary but its a Javascript library that has almost become an intregrated part of the language. Through JQuery DOM(Html and CSS) element manipulations have never been easier. Let me demonstrate. Replace your index.html file with this.</p>
+			<pre><code  class="language-markup"><%= h '<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<button id="btn">Click Me!</button>
+	<script>
+		document.getElementById(\'btn\').onclick = function() {
+			alert(\'click!\');
+		}
+	</script>
+	</body>
+</html>' %>
+			</code></pre>
+			<p> Now let me just quickly explain what is going on here. First we have a button element with the id attribute 'btn'. This allows us to identify which button using the javascript function document.getElementById. Then we recognize its trigger event with the onclick method. We then assign it a unnamed function that creates an alert dialog. Try it out for yourself. Now lets compare it to the JQuery implementation. </p>
+			<pre><code  class="language-markup"><%= h '<!DOCTYPE html>
+<html>
+	<head> 
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	</head>
+	<body>
+		<button id="btn">Click Me!</button>
+	<script>
+		$("#btn").click(function(){
+			alert(\'click!\');
+		});
+	</script>
+	</body>
+</html>' %>
+			</code></pre>
+			<p> You will notice the src attribute being used in the head. This is telling the browser to download JQuery from jquery.com. The src attribute is useful because it allows us to reuse javascript code from other files not just our own html file. If you want to write a seperate JS file simple create a file in the same directoyr as index.html and then assign src filename.js. Example: '< script src="myFirstJS.js"> < /script>'.</p>
+			<p> Further down you will notice the $("#btn") bit. This is known as a Jquery Selector. It is using the DOM selector standards to identify which button to attach a click event to. In the CSS tutorial I will go into more depth on how the Selector works. At first glance these two approaches may not seem that different however, overtime you will learn to appriciate JQuery and how much easier it makes JS perform. </p>
+
+			<p> Now that we can handle button clicks now is a good time to introduce Cookies and LocalStorage.</p>
+			<pre><code  class="language-markup"><%= h '<!DOCTYPE html>
+<html>
+	<head> 
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	</head>
+	<body>
+		<p id="cookie">Cookie: </p>
+		<p id="localStorage">LocalStorage: </p>
+		<p id="sessionStorage">SessionStorage: </p>
+		<input id="name_field" type="text" placeholder="Your Name">
+		<button id="btn">Submit</button>
+	<script>
+		function reloadLocalStorage(){
+			$("#cookie").append(document.cookie);
+			$("#localStorage").append(localStorage.name);
+			$("#sessionStorage").append(sessionStorage.name);
+		}
+		$(function(){
+			reloadLocalStorage();
+		});
+		$("#btn").click(function(){
+			document.cookie = $("#name_field").val();
+			localStorage.name = $("#name_field").val();
+			sessionStorage.name = $("#name_field").val();
+			reloadLocalStorage();
+		});
+	</script>
+	</body>
+</html>' %>
+			</code></pre>
+			<p> So here we have a an input field and an update button which triggers Javascript to update the cookie, local and session storage. The cookie is an older method of storing user data within the browser. Its a 4KB long string with an expiration date. The cookie was used in the days of old to store user login information and other useful session data. However, over time it became easy to read thirdparty cookies resulting in data tracking and other malicious uses. So with HTML5 two new options have become available to us, Local and Session storage. Local Storage is a key-value dictionary assigned to a particular domain with no expiration date. Only the Browser can access this local storage directly unlike cookies which were part of the HTTP protocol. Session Storage is the same as Local Storage except it deletes itself after you close the browser's tab. With the addition of these two, user data can be more secured and easier to use. </p>
+			<h2> Scoping and Hoisting </h2>
+			<p> Now we have a long list of things we can do with Javascript lets talk about some of the pitfalls. This way we can save ourself some headache down the line when our javascript enter the hundreds upon thousands range.</p>
+			<p> In early level programming classes you might not have a word for this. You just accept this as the way things are but have you ever wondered how Java knows what x you are talking about? This concept is called scoping. Now in Java its looking for the closest X up the stack. That makes sense, its all about the most relavent X. However Javascript's scoping has a few strange behaviors that will trip up newcomers. </p>
+			<p> For example: </p>
+			<pre><code  class="language-js"><%= h 'var x = 1;
+function foobar(){
+	if(!x){
+		var x = 2;
+	}
+	alert(x);
+}
+foobar();
+alert(x);' %>
+			</code></pre>
+			<p> Now guess what the end result will be. </p>
+			<p> Ill wait</p>
+			<p> .... </p>
+			<p> .... </p>
+			<p> .... </p>
+			<p> .... </p>
+			<p> .... </p>
+			<p> .... </p>
+			<p> .... </p>
+			<p> Okay did you run it or just give up? Well the answer is 2 and 2. If you thought it would be 1 or are just confused by how this thing functioned. Don't worry I'll break it down line by line.</p>
+			<p> First thing first, we declare a new variable x equal to 1. Next we define ourselves a function. Then we call said function. This results in us using that function. It then checks to see if x is not null, which it isn't then redefines it and then spits out the new value. Then we call upon that new value again in alert(x); after foobar();</p>
+			<p> So what is the fundamental difference? Java and the other Cs are built upon a concept of Block level scoping aka when ever there is a pair of curly brackets. However Javascript uses Function Level scopping aka for every new function(){} this creates a new variable scope.</p>
+			<pre><code  class="language-js"><%= h 'var x = 1;
+function foobar(){
+	if(!x){
+		function(){
+			var x = 2;
+		}
+	}
+	alert(x);
+}
+foobar();
+alert(x);' %>
+			</code></pre>
+			<p> Now it will print out 1 and 1 instead of 2 and 2. So in the future when you want to isolate your scope make sure to declare function(){} before it. It just makes dealing with JS's scoping scheme easier.</p>
+			<p>If you find yourself still unsure about how to handle scoping. Check out this link about<a href="http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html">Javascript Scoping.</a></p>
+ 		</div>
+	</div>
+	<div class="col-sm-2"></div>
+</div>
+<script>
+console.log("Hello World");
+</script>
