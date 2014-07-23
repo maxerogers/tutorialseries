@@ -2,7 +2,6 @@ require "sinatra"
 require "slim"
 require 'sinatra/activerecord'
 require "browser"
-require "glorify"
 require './config/environments' #database configuration
 require './models/model'        #Model class
 

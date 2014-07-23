@@ -7,7 +7,6 @@ gem "rake"
 gem "browser"
 gem "thin"
 gem "slim"
-gem 'glorify'
 
 group :development do 
 	gem 'shotgun'

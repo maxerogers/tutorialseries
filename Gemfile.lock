@@ -20,31 +20,15 @@ GEM
     daemons (1.1.9)
     eventmachine (1.0.3)
     eventmachine (1.0.3-x86-mingw32)
-    glorify (0.5.0)
-      nokogiri
-      rdoc-rouge
-      sinatra
     i18n (0.6.11)
     json (1.8.1)
-    mini_portile (0.6.0)
     minitest (5.4.0)
-    nokogiri (1.6.3.1)
-      mini_portile (= 0.6.0)
-    nokogiri (1.6.3.1-x86-mingw32)
-      mini_portile (= 0.6.0)
     pg (0.17.1)
     pg (0.17.1-x86-mingw32)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
     rake (10.3.2)
-    rdoc (4.1.1)
-      json (~> 1.4)
-    rdoc-rouge (0.1.0)
-      rdoc (~> 4.0)
-      rouge (~> 0.3.0)
-    rouge (0.3.10)
-      thor
     shotgun (0.9)
       rack (>= 1.0)
     sinatra (1.4.5)
@@ -64,7 +48,6 @@ GEM
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
       rack (>= 1.0.0)
-    thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
     tzinfo (1.2.1)
@@ -77,7 +60,6 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   browser
-  glorify
   pg
   rake
   shotgun

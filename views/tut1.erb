@@ -36,7 +36,8 @@
  				<p> I'm sorry for the really long winded explanations before. I know you are mostly interested in making your very first website. So I am going to step you through a very basic hello world. </p>
  				<p> First things first, I need you to open up your favorite text editor. I personally use Sublime. Now save a file named <b>index.html</b>. Index is an important keyword for webpages as its the default name returned by the webserver. Its just a good practice to name your default page index.html </p>
  				<p> Now fill it with this </p>
- 				<pre><code  class="language-markup"><%= h '<html>
+ 				<pre><code  class="language-markup"><%= h '<!DOCTYPE html>
+<html>
 	<head> </head>
 	<body>
 		<h1> Hello World </h1>
@@ -44,7 +45,8 @@
 </html>' %></code></pre>
 				<p>Now drag that file into your browser. It should automatically load it and  greet you with a 'Hello World' message</p>
 				<p> Lets go piece by piece and explain what is going on </p>
-				<p> The first thing you will notice these <'s and >'s. These are the tag brackets denoting a tag. The tag with the '/' is the closing tag. </p>
+				<p> The first thing you will notice these <'s and >'s. These are the brackets denoting a tag. The tag with the '/' is the closing tag. </p>
+				<p> At the top you will notice <b> <!DOCTYPE html></b>. This tag is important because it tells the browser that this file is a html5 file. The older DOCTYPE declarations were much longer and messy. With html5, it was cleaned up.</p>
 				<p> <b> < html ></b> This is the html tag, its just the overall wrapping tag. Its is just stating that this is a HTML file and acts as the root HTML document element.</p>
 				<p> The second tag is almost always the <b>< head > </b> tag. Its is the most important tag for search engines and general communications. Here you will add your keywords, page title, favicon, imported scripts and css files, defined viewport size and much much more. You can think of it as the settings section. </p>
 				<p> next we have the body <b>< body > </b> this represents the body of the document. The majority of your html will be written within this tag</p>
@@ -52,6 +54,20 @@
 
 				<p> Feel free to change Hello World to something else and refresh the page. Notice the difference. Also feel free to try and remove some tags. Some of them won't break this simple page but other will confuse the browser and you will change the end result.</p>
  			</div>
+ 			<h2> Tag Sale!!</h2>
+ 			<p> In this section I will showcase some of my favorite html tags. There are many more out there. A whole list can be found at <a href="http://www.w3schools.com/tags/"> w3schools' site.</a> I choose not to list them all because these are the core ones you will primarily use. I didn't want to expose you to too much too quickly.</p>
+
+ 			<h3>p</h3>
+ 			<p> the p tag is a very useful tag. the p is short for paragraph and the broswer automatically adds some appropiate margins before and after this element. This element is the general purpose text tag</p>
+
+ 			<h3>a</h3>
+ 			<p> the a tag is the link tag. It is the tag that creates those little blue and purple hyperlinks you are probably very familiar with. The a is short for Anchor object. Link was already used for something else in the head. I will talk more about the Link tag in the CSS tutorial. </p>
+
+ 			<h3>b</h3>
+ 			<p> the b tag is fun because it allows you to <b>bolden</b> text. </p>
+
+ 			<h3>button</h3>
+ 			<p> button makes a button. Currently alone it doesn't do much but when we add javascript, we will be able to bring your page to life thats to this little element. </p>
  		</div>
 	</div>
 	<div class="col-sm-2"></div>
