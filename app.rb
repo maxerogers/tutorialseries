@@ -11,13 +11,9 @@ get '/' do
   erb :index
 end
 
-get '/tut0_old' do
-	erb :tut0
-end
-
 get '/tut0' do
 	@browser = Browser.new(:ua => request.user_agent, :accept_language => "en-us") 
-	erb :tut0b
+	erb :tut0
 end
 
 get "/tut1" do 
