@@ -11,7 +11,6 @@
  			<ol>
  				<li> Internet...what is it?</li>
  				<li> Under the Hood </li>
- 				<li> What is Html? </li>
  				<li> Hello World </li>
  				<li> Tags Sale!! </li>
  			</ol>
@@ -27,8 +26,31 @@
  				<p>Right click on some random spot on this page then select on <b> Inspect Element</b> </p>
  				<p>This will provide for you a new console and you can inspect this page. Under the Elements tab,You will see the compiled html and the computed css on the right side. Either one you can manipulate however when you fresh the page you will see that your changes dont stay. This is because these are just copies of the original documents hosted on the server. </p> 
  				<p>Click on the Resources tab, you will see all the data files, in the Frames folder you will see the HTML, CSS, Javascript and Image files. Lower you will notice the infamous Cookies. Cookies are actually long strings given to the browser by a domain(a website). Cookies are useful for storing user-session data and authenication tokens so users don't need to sign in again when returning to a familiar site. Unforunately this data is public, so you probably know cookies more from their malicious uses -- Tracking Cookies. In response to this missuse HTML5 has introduced a few new alternatives. The first is Local Storage and the other is Session Storage. These alternatives are never sent to the server, can only be requested for the site that saved it and are stored within the broswer. The difference between Local Storage and Session Storage is simple, Local Storage is permanently stored within the Browser while Session Storage is deleted when you close that tab. We will discuss how to use these 3 data storage options in the next tutorial, the Javascript tutorial. </p>
- 				<p> The next tab of interest is the Network tab.
+ 				<p> The next tab of interest is the Network tab. Here is shows all of the different requests your browser has done to varies servers. What file was requested. What Methods were called. Was it successful or not. How long this request took. This tab is very useful if you notice something isn't loading properly and also for optimiztion. Which file is that naughty file taking a whole second to load. When we get the backend tutorial we will use this tab a bit.
  				</p>
+ 				<p> The final really essential tab is the console tab. This is primary used for javascript so when we get the Javascript tutorial we will talk more about this.</p>
+ 			</div>
+
+ 			<h2> Hello World </h2>
+ 			<div>
+ 				<p> I'm sorry for the really long winded explanations before. I know you are mostly interested in making your very first website. So I am going to step you through a very basic hello world. </p>
+ 				<p> First things first, I need you to open up your favorite text editor. I personally use Sublime. Now save a file named <b>index.html</b>. Index is an important keyword for webpages as its the default name returned by the webserver. Its just a good practice to name your default page index.html </p>
+ 				<p> Now fill it with this </p>
+ 				<pre><code  class="language-markup"><%= h '<html>
+	<head> </head>
+	<body>
+		<h1> Hello World </h1>
+	</body>
+</html>' %></code></pre>
+				<p>Now drag that file into your browser. It should automatically load it and  greet you with a 'Hello World' message</p>
+				<p> Lets go piece by piece and explain what is going on </p>
+				<p> The first thing you will notice these <'s and >'s. These are the tag brackets denoting a tag. The tag with the '/' is the closing tag. </p>
+				<p> <b> < html ></b> This is the html tag, its just the overall wrapping tag. Its is just stating that this is a HTML file and acts as the root HTML document element.</p>
+				<p> The second tag is almost always the <b>< head > </b> tag. Its is the most important tag for search engines and general communications. Here you will add your keywords, page title, favicon, imported scripts and css files, defined viewport size and much much more. You can think of it as the settings section. </p>
+				<p> next we have the body <b>< body > </b> this represents the body of the document. The majority of your html will be written within this tag</p>
+				<p> finally we have the <b> < h1 ></b> tag. This tag is building a header1 element. Header1 is a standard element generally used for large title headers. There are 2 other header tags h2 and h3. I chose to use this one because it was the biggest and bigger is always better. </p>
+
+				<p> Feel free to change Hello World to something else and refresh the page. Notice the difference. Also feel free to try and remove some tags. Some of them won't break this simple page but other will confuse the browser and you will change the end result.</p>
  			</div>
  		</div>
 	</div>

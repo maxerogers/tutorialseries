@@ -2,6 +2,7 @@ require "sinatra"
 require "slim"
 require 'sinatra/activerecord'
 require "browser"
+require "glorify"
 require './config/environments' #database configuration
 require './models/model'        #Model class
 
@@ -25,4 +26,10 @@ after do
   # Close the connection after the request is done so that we don't
   # deplete the ActiveRecord connection pool.
   ActiveRecord::Base.connection.close
+end
+
+helpers do
+  def h(text)
+    Rack::Utils.escape_html(text)
+  end
 end
