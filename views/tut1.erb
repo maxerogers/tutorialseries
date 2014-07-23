@@ -57,17 +57,63 @@
  			<h2> Tag Sale!!</h2>
  			<p> In this section I will showcase some of my favorite html tags. There are many more out there. A whole list can be found at <a href="http://www.w3schools.com/tags/"> w3schools' site.</a> I choose not to list them all because these are the core ones you will primarily use. I didn't want to expose you to too much too quickly.</p>
 
+
+ 			<h3>h1</h3>
+ 			<p> the h1 (&h2&h3) tags are used to express title headers.You can use this tag as many times as you want. The numbrs only denote what size to use. Below in the example, you will notice that the three aren't the same size. Generally one might use the h2 as a subtitle to h1 and h3 to h2</p>
+
+ 			<pre><code  class="language-markup"><%= h '<h1>Header1<h1/><h2>Header2</h2><h3>Header3</h3>' %></code></pre>
+ 			<div class="panel panel-default">
+			  <div class="panel-heading">Result</div>
+			  <div class="panel-body">
+			    <h1>Header1<h1/><h2>Header2</h2><h3>Header3</h3>
+			  </div>
+			</div>
+
  			<h3>p</h3>
  			<p> the p tag is a very useful tag. the p is short for paragraph and the broswer automatically adds some appropiate margins before and after this element. This element is the general purpose text tag</p>
 
+ 			<pre><code  class="language-markup"><%= h '<p>Howdy<p/><p>Mate<p/>' %></code></pre>
+ 			<div class="panel panel-default">
+			  <div class="panel-heading">Result</div>
+			  <div class="panel-body">
+			    <p>Howdy<p/>
+			    <p>Mate<p/>
+			  </div>
+			</div>
+
+
  			<h3>a</h3>
- 			<p> the a tag is the link tag. It is the tag that creates those little blue and purple hyperlinks you are probably very familiar with. The a is short for Anchor object. Link was already used for something else in the head. I will talk more about the Link tag in the CSS tutorial. </p>
+ 			<p> the a tag is the link tag. It is the tag that creates those little blue and purple hyperlinks you are probably very familiar with. The a is short for Anchor object. Link was already used for something else in the head. I will talk more about the Link tag in the CSS tutorial. The most important attribute for the a tag is the href. Its short for hyperlink-reference. You just telling the browser where to link to when you click on this hyperlink. In our example we are linking to google.com</p>
+
+ 			<pre><code  class="language-markup"><%= h '<a href="http://google.com">google.com</a>' %></code></pre>
+ 			<div class="panel panel-default">
+			  <div class="panel-heading">Result</div>
+			  <div class="panel-body">
+			    <a href="http://google.com">google.com</a>
+			  </div>
+			</div>
 
  			<h3>b</h3>
  			<p> the b tag is fun because it allows you to <b>bolden</b> text. </p>
 
+ 			<pre><code  class="language-markup"><%= h '<b>bold text</b>' %></code></pre>
+ 			<div class="panel panel-default">
+			  <div class="panel-heading">Result</div>
+			  <div class="panel-body">
+			    <b>bold text</b>
+			  </div>
+			</div>
+
  			<h3>button</h3>
  			<p> button makes a button. Currently alone it doesn't do much but when we add javascript, we will be able to bring your page to life thats to this little element. </p>
+
+ 			<pre><code  class="language-markup"><%= h '<button>I am a button</button>' %></code></pre>
+ 			<div class="panel panel-default">
+			  <div class="panel-heading">Result</div>
+			  <div class="panel-body">
+			    <button>I am a button</button>
+			  </div>
+			</div>
 
  			<h2> Next time</h2>
  			<p> Thank you for completing this tutorial. I hope you learned something useful. Next time we will be bring your skeleton of a site to life with Javascript.</p>
