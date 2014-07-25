@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	</head>
+	<body>
+		<p id="cookie">Cookie: </p>
+		<p id="localStorage">LocalStorage: </p>
+		<p id="sessionStorage">SessionStorage: </p>
+		<input id="name_field" type="text" placeholder="Your Name">
+		<button id="btn">Submit</button>
+	<script>
+		function reloadLocalStorage(){
+			$("#cookie").append(document.cookie);
+			$("#localStorage").append(localStorage.name);
+			$("#sessionStorage").append(sessionStorage.name);
+		}
+		$(function(){
+			reloadLocalStorage();
+		});
+		$("#btn").click(function(){
+			document.cookie = $("#name_field").val();
+			localStorage.name = $("#name_field").val();
+			sessionStorage.name = $("#name_field").val();
+			reloadLocalStorage();
+		});
+	</script>
+	</body>
+</html>
