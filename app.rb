@@ -1,11 +1,9 @@
 require "sinatra"
-require "slim"
 require 'sinatra/activerecord'
 require "browser"
+require "thin"
 require './config/environments' #database configuration
 require './models/model'        #Model class
-
-set :slim, :pretty => true
 
 get '/' do
   erb :index

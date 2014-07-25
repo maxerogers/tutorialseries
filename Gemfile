@@ -4,13 +4,13 @@ gem 'sinatra'
 gem "activerecord"
 gem "sinatra-activerecord"
 gem "rake"
-gem "browser"
 gem "thin"
-gem "slim"
+gem "browser"
 
 group :development do 
 	gem 'shotgun'
 	gem "sqlite3"
+	gem "tux"
 end
 
 group :production do 
