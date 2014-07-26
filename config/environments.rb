@@ -17,5 +17,5 @@ configure :production do
 end
 
 configure :development do 
-	set :database, {adapter: "sqlite3", database: "foo.sqlite3"}
+	set :database, {adapter: "sqlite3", database: "db/foo.sqlite3"}
 end
