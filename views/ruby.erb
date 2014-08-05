@@ -1,0 +1,160 @@
+<h2> Ruby 101 </h2>
+
+ 			<p> Lets make the classic hello world program. Everyone has written this puppy before. In ruby the entire program is a single line </p>
+ 			<pre><code  class="language-ruby">puts 'hello world'</code></pre>
+ 			<p> That it. Now lets try something adding a variable.</p>
+ 			<pre><code  class="language-ruby">x = 0
+puts 'hello world #{x}'</code></pre>
+ 			<p> Here we have a variable called x being declared at line 1 and later it is being concated into the string. Ruby doesn't require a keyword for declarations like Javascript or Java. In addition, it has a unique way to insert variables into Strings. Ruby supports the classic "X:"+x+"!" Java style. However, you will find that the #{} method is easier. You no longer have to deal with nested pairs of ''s and ""s. </p>
+ 			<h3> Primary Variables </h3>
+ 			<p> In Ruby there are a few standard varible types. </p>
+ 			<pre><code  class="language-ruby">x = 0 # the classic 32bit integer its object is the Fixnum
+y = 0.0 #the float
+z = 'string' #string could also be written "string"
+a = [] #this is an empty array
+h = {} #this is an empty hash</code></pre>
+			<p> Arrays in ruby are more like Python's lists than a C-like array. Its a dynmaic arraylist which can grow and shrink. </p>
+			<p> Hashes or you might know them as Maps or Dictionaries, are a unique and useful datastructure. You assign an entry by giving it a key and a value. A way to think of it as an addressbook where you have an address KEY and a person VALUE. </p>
+			<pre><code  class="language-ruby">
+array = [1,2,3] #you can declare it explicitly
+array = Array.new(3) # you can declare the actual object with a certain length
+array.push 1 #add a value at the end
+array[1] 	#index
+#and much more. 
+
+hash = {:key => value}
+hash = {key: value} #these two staements are the same
+hash = {1: 1, 2: 2, 3: 3}
+players = {1: Mario, 2: Luigi, 3: Peach, 4: Toad}
+#and much more.
+</code></pre>
+			<p> If interested in learning more of the functionality of <a href="http://www.ruby-doc.org/core-2.1.2/Array.html">Arrays</a> and <a href="http://www.ruby-doc.org/core-2.1.2/Hash.html">Hashes</a> check out the ruby documentation.</p>
+ 			<h3> Ruby Functions</h3>
+ 			<p> Ruby being the malluble language that is its has two style of function calls: With and without the parentheses. </p>
+ 			<pre><code  class="language-ruby">puts('Howdy Partner')
+# is the same as 
+puts 'Howdy Partner'</code></pre>
+			<p> Now lets define some functions</p>
+			<pre><code  class="language-ruby">
+def fun0
+	"This function is accepting zero arguments and returns a string"
+end
+def fun1(x)
+	"This function is accepting 1 arguments and returns a string"
+end
+def fun2(x,y)
+	"This function is accepting 2 arguments and returns a string"
+end
+def fun3(x,y,*z)
+	"This function is accepting 2+ arguments and returns a string. The additional arguments will be placed into the array z"
+end
+def fun4(x,y=1)
+	"This function is accepts 1 or 2 arguments and returns a string. The y argument doesn't need to be defined and will have a default value of 2"
+end</code></pre>
+			<p> One thing you might have noticed is that I never declare return in any of these functions. This is because Ruby returns the final statement in any function. You can exclusively use the keyword return if you want and it can be used to return early in a function as well.</p>
+			<h3> Yields </h3>
+			<p> Remember how I mentioned that ruby returns automatically at the end of methods. Well ruby does this partial because it has two different types of returns. Good old vanilla returns and yields. Yields are something unique to ruby or atleast I haven't seen it in any other language so far. However it has an unbelievablely powerful concept. The Yield is a way to return a value up from a method to a nest method and then return back to the original method. Its easier to just show you. </p>
+			<pre><code  class="language-ruby">
+array = [1,2,3,4]
+array.each { |x| puts x }</code></pre>
+			<p> The method .each is iterating through the array and is yielding the current indexed element. My new anyomous method definded by the {} block catches this yielded varible with the |x| declaration. Then it prints out x and returns back to each. Let me show you an equivalent method call in Java</p>
+			<pre><code  class="language-java">
+int[] array = {1,2,3,4};
+for( int x: array){
+	System.out.println(x);
+}
+
+// Or if you prefer the old C-like style
+int[] array = {1,2,3,4};
+for(int i=0;i < array.length(); i++){
+	System.out.println(array[i]);
+}
+			</code></pre>
+
+			<p> Now lets write our own version of the .each method</p> 
+
+			<pre><code  class="language-ruby">
+#Here we are defining a new method to the standard Array class
+class Array
+	def each2(&block)
+		for i in 0..self.size-1 do
+		  yield self[i]
+		  block.call
+		end
+	end
+end
+
+#these two should have the same result
+array.each {|x| puts x}
+array.each2 { |x| puts x}
+			</code></pre>
+
+			<p> If you are still having issues following this. Maybe this example will straighten things out.</p>
+			<pre><code  class="language-ruby">
+def block_test
+	puts "Before the Block"
+	yield
+	puts "After the Block"
+end
+block_test {puts "In the Block"}
+			</code></pre>
+			<p> if you try to use block_test without a block you'll encounter and error. Now worries lets try this </p>
+			<pre><code  class="language-ruby">
+def block_test
+	puts "Before the Block"
+	if block_given?
+		yield
+	else
+		puts "No block passed"
+	end
+	puts "After the Block"
+end
+block_test {puts "In the Block"}
+			</code></pre>
+			<p> Its difficult to think in blocks at first but the more ruby you enocunter you'll notice how useful it is and learn through observation. </p>
+			<h3> Classes </h3>
+			<p> How to make a class in Ruby </p>
+			<pre><code  class="language-ruby">
+class Bot
+	attr_accessor :name, :model
+	def initialize(n,m)
+		@name = n
+		@model = m
+	end
+	def to_s
+		"name: #{@name}; model: #{@model}"
+	end
+	def self.buzz
+		"Buzz"
+	end
+end
+			</pre></code>
+			<p> In Ruby, the self reference keyword is self and @ for short. So @name is the same as self.name. The initialize method is Ruby's constructor. Next comes to_s which is a instance method that returns a string. While self.buzz is a class method. This may seem odd but the self reference is to the Bot class itself not to the instance object. However, outside of these function def, the self[@ for short] reference does point towards the instance object. Finally we have the attr_accessor method. This is a generator method. It is a shortcut for creating the public getter and setter methods [def x & def x= (y)]. There are two other built in methods attr_reader == getter generator and attr_writer == setter generator. </p>
+			<p> Ruby uses single inheritance modular open objects. This means that a class can only have one parent but belong to multiple module mixins and to be edited in the future. </p>
+			<pre><code  class="language-ruby">
+module Killable
+	def takeDamage(x)
+		@hp -= x
+	end
+end
+
+class Orc
+	includes Killable
+	attr_accessor :hp, :attack, :defense
+	def initialize(x,y,z)
+		@hp = x
+		@attack = y
+		@defense = z
+	end
+	def walk
+	end
+	def eat
+	end
+end
+
+class Grunt < Orc
+	def fight
+	end
+end
+			</code></pre>
+			<p> So here have some really simple Orc object. It has hp, attack and defense generated by attr_accessor and initialized with initializer. Then it has some instance methods as well as a mixin. The statement imports all of Killable's instance methods into the Orc class. Next we have a child class Grunt which inherits from Orc. It will also import killable and all the other previous methods. The only difference is that def fight will be a uniquely grunt method. You can rewrite the initialize method if you need a new constructor. </p>

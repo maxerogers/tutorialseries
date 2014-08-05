@@ -1,0 +1,121 @@
+<div class="row">
+	<div class="col-sm-1 col-md-2"></div>
+	<div class="col-sm-10 col-md-8 col-xs-12">
+		<header>
+			<img src="img/cssisawesome.png" class="img-rounded img-responsive logo">
+			<h1> CSS -- putting your face on</h1>
+			<h2> Crash Course Part 3 </h2>
+	 		<h2><i class="fa fa-paperclip"></i> CSS, JQuery, BootStrap, Media Query</h3>
+ 		</header>
+ 		<div class="meat">
+ 			<ol>
+ 				<li> Cascading Styling Sheets </li>
+ 				<li> Selector </li>
+ 				<li> Box Model </li>
+ 				<li> Bootstrap </li>
+ 				<li> Other frameworks </li>
+ 			</ol>
+ 			<h2> Cascading Styling Sheets </h2>
+ 			<p> You may have noticed your pages in the previous tutorials have been kind of plain. That is because I was waiting until after we covered JQuery to introduce CSS. Cascading style sheets(CSS) is what brings life and color to you website. To help demonstrate how to use css, I am going to use JQuery to provide a dynamic change. Also allows me to further talk about the selector used in JQuery and CSS.</p>
+
+ 			<p>Technically there are three ways to write CSS statements: inline, in the style tag, or external. Inline CSS is statements are style commands using the style attribute and allows you to write quick small little CSS changes to your html elements. However, this approach is best for testing but terrible for production. It becomes incredible hard to maintain. The next approach is in the style tag. The style tag is usually written in the head tag. The purpose of this is so that it is loaded before the rest of the body. Thus the browser only needs to render the page once. Otherwise it would have to redraw elements after getting a new change to them. Web Apps are all about how quickly you respond and alert users to changes so a website that doesn't load quickly or keeps reloading makes the user question if this website is worth their time. The final approach is the most recommended approach. It is the external file, this is where you build a .css file and then link to it in the header file. This is so that it loaded before the body but also so you care reuse this CSS file for other web pages. That is how it is different from say just writting it in the head tag. </p>
+
+ 			<p> examples: </p>
+ 			<pre><code  class="language-markup"><%= h '<!DOCTYPE html>
+<html>
+	<head> 
+		<link rel="stylesheet" href="/css/style_file.css"> <!-- Method 3:External Link-->
+		<style> <!-- Method 2:Style tag -->
+			h2{
+				color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<h1> Test </h1>
+		<h2> Test2 </h2>
+		<h3 style="color:blue;"> Test3 </h3> <!-- Method 1: Inline -->
+	</body>
+</html>' %></code></pre>
+			
+			<p> For the following examples, I will use the 2nd method just so it easier for you to see it. However, in later tutorials we will use Method 3.  </p>
+			<h2> Selector </h2>
+			<p> So how do we use CSS? Like...how does CSS know what element to color blue or position it at X,Y. The way we do that is that by using the Selector syntax. You have seen a glimpse of this with JQuery. Basic rules: a dom element has 1 tag and can have 1 id and have any number of classes. </p>
+			<pre><code  class="language-markup"><%= h '<!DOCTYPE html>
+<html>
+	<head> 
+		<style> <!-- Method 2:Style tag -->
+			p{
+				font-family: "Times New Roman", Times, serif;
+			}
+			#center{
+				text-align: center;
+			}
+			.italic{
+				font-style: italic;
+			}
+			.blue{
+				color:blue;
+			}
+			.red, h2{
+				color:red;
+			}
+			p a{
+				color:green;
+			}
+		</style>
+	</head>
+	<body>
+		<h2> Test Objects </h2>
+		<p> Test </p>
+		<p id="center" class="blue"> Test2 </p>
+		<p class="red italic"> Test3 <a href="#">Link</a> </p>
+	</body>
+</html>' %></code></pre>
+		<p> So you will notice that first paragraph doesn't have any dom ids or classes. However its font is still Time New Roman. This is because the p delcartion in the style tag is an all encompassing umberalla declaration. All p tag elements are affected by this statement. Next you will see that the second paragraph has an id and a class. The pound/hashtag (#) symbol is used in the CSS Selector to state that we are talking about the id called center. The period(.) symbol is the class version of the # symbol. Next up there is p a. This is saying, all a tags inside of p tags do the following to. Last thing is the commas(,). Its purpose is assign styling to multiple selections. So in .red, h2 we are assigning .red and h2 the color red. This is useful to eliminate duplicate entries. </p>
+
+		<h2> Box Model </h2>
+		<p> The CSS box model is essentially a box that wraps around every HTML elements, and it consists of: margins, borders, padding, and the actual content.</p>
+		<img src="img/box-model.svg" class="img-responsive img-rounded">
+		<p>Margins are the spaces between different html elements. So you use it to space out between buttons or paragraphs. Borders draw lines alone the border between margin space and padding space. Padding on the other hand is used to give space between a parent element and its children. Padding is mostly used for positioning text within an element. The tricky part is figuring out whether you should use padding or margins. </p>
+
+		<p> The most basic element in html is the div tag. Divs are the enbodiment of an empty box. Use divs to help organize different html/css elements. </p>
+
+		<pre><code  class="language-markup"><%= h '<!DOCTYPE html>
+<html>
+	<head> 
+		<style> <!-- Method 2:Style tag -->
+			p{
+				font-family: "Times New Roman", Times, serif;
+			}
+			#center{
+				text-align: center;
+			}
+			.italic{
+				font-style: italic;
+			}
+			.blue{
+				color:blue;
+			}
+			.red, h2{
+				color:red;
+			}
+			p a{
+				color:green;
+			}
+		</style>
+	</head>
+	<body>
+		<h2> Test Objects </h2>
+		<p> Test </p>
+		<p id="center" class="blue"> Test2 </p>
+		<p class="red italic"> Test3 <a href="#">Link</a> </p>
+	</body>
+</html>' %></code></pre>
+ 		</div>
+	</div>
+	<div class="col-sm-1 col-md-2"></div>
+</div>
+<script>
+console.log("Hello World");
+</script>

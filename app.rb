@@ -22,6 +22,13 @@ get "/tut2" do
 	erb :tut2
 end
 
+get "/tut3" do 
+  erb :tut3
+end
+
+get "/tut4" do 
+  erb :tut4
+end
 
 after do
   # Close the connection after the request is done so that we don't
