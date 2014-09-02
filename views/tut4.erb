@@ -9,14 +9,18 @@
  		</header>
  		<div class="meat">
  			<ul>
- 				<li>What is Ruby</li>
+ 				<li>Dynamic Sites</li>
+				<li>What is Ruby</li>
  				<li>Installation</li>
  				<li>Basics of Routes</li>
  				<li>ERB - Dynamic Pages</li>
  				<li>Hosting</li>
  				<li>Databases</li>
  			</ul>
- 			<h2> What is Ruby?</h2>
+ 			<h2> Dynamic Sites </h2>
+			<p> Now you have learned how to build static website pages with Html, CSS and Javascript. However, those three technologies can only get you so far. You need to be able to build websites based upon user submittions like Wiki Articles and Facebook Posts. The secret to that is databases. Now database querying can get very complicated and tedious especially as your site grows larger and larger. To help ease this developers have built APIs that Objective this and remove the need to understand Relational Algebra. These concepts are known as Persistence and Object Relation Modeling(ORM). </p>
+			<p> There are many options to build a persistance ORM (JavaEE, Python-Flask, C# .NET, etc). In this tutoerial we will be using Ruby-Sinatra. </p>
+			<h2> What is Ruby?</h2>
  			<p> Ruby is an Objected Orientated Programming language like Java but it is closer to Python than the C family. So for those of you who know Python this won't be too foreign. Ruby's goal is to be a langauge that is easy to write and easy to read without sacrificing functionality. As a result, it is an incrediblely expressive language with some unique functionality. It can complete taskes in a single line that other languages may take 5. This makes it great for a backend programming language. </p>
 
  			<h2> Installing Ruby </h2>
@@ -47,34 +51,34 @@ rvm use 2.1</code></pre>
 			  	<pre><code  class="language-bash">\curl -sSL https://get.rvm.io | bash</code></pre>
 			  	<p> Then run </p>
 				<pre><code  class="language-bash">rvm install 2.1
-rvm use 2.1</code></pre>	
+rvm use 2.1</code></pre>
 				<p> Finally setup Ruby Gems</p>
 				<pre><code  class="language-bash">rvm rubygems current</code></pre>
 			  </div>
-			  <div class="tab-pane" id="Windows">For windows, just install Rails installer its an easy single packaged bundle which install ruby for you. <a href="http://railsinstaller.org/en">LINK</a></div>
+			  <div class="tab-pane" id="Windows">For windows, just install Rails installer its an easy single packaged bundle which install ruby for you. <a href="http://railsinstaller.org/en">LINK</a>
+					<p>This .exe file will install Git, Ruby 1.9,  </p>
+				</div>
 			</div>
 
 			<h2> Getting Sinatra singing </h2>
-			<p> While Rails is the most popular framework to build websites with Ruby; I thought it would be a good idea to introduce you to something a little less complicated. Rails as a lot of parts and tries to do everything as it was built as an island in the mid 2000s however after almost ten years there are a lot of other alternatives in the Ruby world. One of which is the scrappy, barebones but flexible Sinatra. Lets build a simple hello world sinatra</p>
-
+			<p> While Rails is the most popular framework to build websites with Ruby; I thought it would be a good idea to introduce you to something a little less complicated. Rails as a lot of parts and tries to do everything. Rails was the first major web framework for Ruby so it built as an island in the mid 2000s. However after almost ten years there are a lot of other alternatives in the Ruby world. One of which is the scrappy, barebones but flexible Sinatra. I think it will be better for our educational purpsoes. If you are interested in learning more about Rails(as it is a high in demand web framework) I recommended following <a href="http://andreapavoni.com/blog/2013/8/a-rails-4-tutorial-application-for-beginners/#.VAU6e1bobx4">this tutorial</a> to get yourself started. Then check out <a href="http://codeschool.com/">Code School's </a> and <a href="http://http://railscasts.com">Rails Casts'</a> tutorials to get more depth. Now Lets build a simple hello world sinatra</p>
 			<p> First thing first</p>
 			<pre><code  class="language-bash">gem install sinatra</code></pre>
 			<p> Rubygems will install the latest version of sinatra available to your version of Ruby</p>
 			<p> Next put the following into a new blank file named app.rb</p>
 			<pre><code  class="language-ruby">require "sinatra"
-get "/" do 
+get "/" do
 	'Hello World'
 end</code></pre>
 			<p> Now just run</p>
 			<pre><code  class="language-bash">ruby app.rb</code></pre>
-			<p> This should build a simple sinatra webserver on your computer on port 4567. To check it out, open your webbrowser to a new tab and type in http://localhost:4567/. You should be greated with a frendly 'hello world'</p>
+			<p> This should build a simple sinatra webserver on your computer on port 4567. To check it out, open your webbrowser to a new tab and type in http://localhost:4567/ <a href="http://localhost:4567">link</a>. You should be greated with a frendly 'hello world'</p>
 
 			<h2> Routing </h2>
 			<p> So in this application we are building a route for "/". Routes are how we communicate to the web app to deteremine what different web page to go to. Its a http request from your browser to the server; It includes a HTTP Method and a URL Route. There are quite a few HTTP methods but the 2 most important are GET and POST. GET is used to recieve data so generally use it for a pages and data requests. POST on the other hand is used for submissions and editing. So use POST for form submissions and any other time you are changing backend data. Becoming familiar with GET and POST will help you with any future backend technology you use.  </p>
 
 			<p> So lets write our next route. Add this to the bottom of app.rb </p>
-			<pre><code  class="language-ruby">
-get "/test" do
+			<pre><code  class="language-ruby">get "/test" do
 	"This is a test"
 end</code></pre>
 			<a href="http:/localhost:4567/test">Go to http://localhost:4567/test</a>
@@ -82,16 +86,16 @@ end</code></pre>
 			<pre><code  class="language-ruby">get "/form" do
 	puts "GET"
 	<%= h '\'<h3>Data:</h3>
-	<form method="post" action="/form"> 
+	<form method="post" action="/form">
 		<input type="text" name="data">
 		<input type="submit" value="submit">
 	</form>\'' %>
 end
-post "/form" do 
+post "/form" do
 	puts "POST"
 	puts params.inspect
 	<%= h '\'<h3>Data: \'+params[:data]+\' </h3>
-	<form method="post" action="/form"> 
+	<form method="post" action="/form">
 		<input type="text" name="data">
 		<input type="submit" value="submit">
 	</form>\'' %>
