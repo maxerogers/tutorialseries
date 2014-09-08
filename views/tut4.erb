@@ -61,8 +61,8 @@ rvm use 2.1</code></pre>
 			</div>
 
 			<h2> Getting Sinatra singing </h2>
-			<p> While Rails is the most popular framework to build websites with Ruby; I thought it would be a good idea to introduce you to something a little less complicated. Rails as a lot of parts and tries to do everything. Rails was the first major web framework for Ruby so it built as an island in the mid 2000s. However after almost ten years there are a lot of other alternatives in the Ruby world. One of which is the scrappy, barebones but flexible Sinatra. I think it will be better for our educational purpsoes. If you are interested in learning more about Rails(as it is a high in demand web framework) I recommended following <a href="http://andreapavoni.com/blog/2013/8/a-rails-4-tutorial-application-for-beginners/#.VAU6e1bobx4">this tutorial</a> to get yourself started. Then check out <a href="http://codeschool.com/">Code School's </a> and <a href="http://http://railscasts.com">Rails Casts'</a> tutorials to get more depth. Now Lets build a simple hello world sinatra</p>
-			<p> First thing first</p>
+			<p> While Rails is the most popular framework to build websites with Ruby; I thought it would be a good idea to introduce you to something a little less complicated. Rails as a lot of parts and tries to do everything. Rails was the first major web framework for Ruby so it had to build all of its own solutions in the mid 2000s. However after almost ten years there are a lot of other alternatives in the Ruby world. One of which is the scrappy, barebones but flexible Sinatra. I think it will be better for our educational purpsoes. If you are interested in learning more about Rails(as it is a high in demand web framework) I recommended following <a href="http://andreapavoni.com/blog/2013/8/a-rails-4-tutorial-application-for-beginners/#.VAU6e1bobx4">this tutorial</a> to get yourself started. Then check out <a href="http://codeschool.com/">Code School's </a> and <a href="http://http://railscasts.com">Rails Casts'</a> tutorials to get more depth. Now Lets build a simple hello world sinatra</p>
+			<p> First things first</p>
 			<pre><code  class="language-bash">gem install sinatra</code></pre>
 			<p> Rubygems will install the latest version of sinatra available to your version of Ruby</p>
 			<p> Next put the following into a new blank file named app.rb</p>
@@ -86,7 +86,7 @@ end</code></pre>
 			<pre><code  class="language-ruby">get "/form" do
 	puts "GET"
 	<%= h '\'<h3>Data:</h3>
-	<form method="post" action="/form">
+	<form action="/form">
 		<input type="text" name="data">
 		<input type="submit" value="submit">
 	</form>\'' %>
@@ -95,12 +95,88 @@ post "/form" do
 	puts "POST"
 	puts params.inspect
 	<%= h '\'<h3>Data: \'+params[:data]+\' </h3>
-	<form method="post" action="/form">
+	<form action="/form">
 		<input type="text" name="data">
 		<input type="submit" value="submit">
 	</form>\'' %>
 end</code></pre>
- 		</div>
+		<p> Did you check out? If you are still confused by the routing then <a href="http://localhost:4567/form"> go to http://localhost:4567/form. </a> Now lets explain what is going on</p>
+		<p> We are building two routes. The inital one without data and the second one which post the form submission and has dynamic data being injected. This is accomplished with the PARMAS method. Params is short for Parameters. They are the parameters in the HTTP Request method. In our snippet the parameter :data is being embedded by the form in an input field. What ever you put into that input field the browser will embedded as the value for :data. Then when sinatra recieves that http request it will have a hash to :datas value using params[:data].</p>
+
+		<p> IF you look at your app.rb routes now...you might notice something a little off. Why are your route methods returning these HUGE Strings</p>
+		<p> You must be wondering if there is an easier way to manage your html/css. There is using erb. Erb is just short for Embed RuBy. It allows you to add ruby logic and variables directly into your html</p>
+
+		<p> To get started using ERB lets make a new folder called 'views' and inside of it make a new file called 'index.erb'. Now fill it with the following</p>
+		<pre><code><%= h'' %></code></pre>
+
+		<p> Next replace your old routes with these new routes </p>
+		<pre><code class="language-ruby"></code></pre>
+		<p> Much clearer don't you agree? </p>
+		<p> Now this is good and dandy for now but we want to have a true persisting backend. </p>
+		<p> To implement this we will need to setup a database server to enable our persistence as well as establish an ORM.</p>
+		<p> In this tutorial we will be using SQLite3 as our database and Sinatra-ActiveRecord as our ORM. I choose these two because SQLite3 is the easiest to install as it requires no additional software or plugins than just the gem. Sinatra-Activerecord is a port of Rails Activerecord ORM and DB migration system. There are other options out there but I feel Activerecord is the clearest and most useful to learn.</p>
+		<p> To make your life easier I have built a little git repo for you to start </p>
+		<!-- Insert Git Repo here-->
+		<p> If you don't understand how to use Git feel free to look at <a href="">Tutorial 0</a>. However, for the lazy and uninterested you can simply download the repo as a .zip. </p>
+		<p> In the repo you will find a couple different files [app.rb, config.ru, Gemfile, Rakefile] and folers [db, views, public]</p>
+		<p> I will now explain the purpose of each one and tell you what to add in each</p>
+		<p> First lets talk about the Gemfile. The Gemfile as you probably could have guessed is used to maintain Gem dependencies. Here you can declare what version a gem should be and where the source is. This helps alot when working with a team as everyone's computers may be on different OSes and have different version of gem X installed. Gemfiles just make this whole process a lot easier. Now insert the following into Gemfile </p>
+		<pre><code class="language-ruby">
+<%= h "source 'https://rubygems.org'
+gem 'sinatra'
+gem 'activerecord'
+gem 'sinatra-activerecord'
+gem 'rake'
+gem 'sqlite3'" %>
+		</code></pre>
+		<p> Awesome now in the terminal run </p>
+		<pre><code class="language-bash"> bundle install </code></pre>
+		<p> Bundler will run through your gem file and make sure the appropiate gem libraries are installed.</p>
+		<p> Next thing we need to set up is the Rakefile. Rake is a middleware for Ruby like what ANT and Maven is to Java. For those unclear, a simple way to understand Middlewares are what handles the transactions between libraries. They are the middle men or diplomats as it were.</p>
+		<pre><code class="language-ruby"> <%= h "require './app'
+require 'sinatra/activerecord/rake'"
+		%></code></pre>
+		<p> Thats it, we are just telling Rake to import app.rb and all the commands from sinatra-activerecord</p>
+		<p> To test that it worked run Rake -T in the console. It should spit out a lot of options</p>
+		<p> Now that we have Rake setup, we can build the database. Activerecord relies upon a concept called migrations. Migrations are useful because it allows you to modify preexisting SQL databases without having to completely destroy them. Also it just makes the managing them between different developers much easier.</p>
+		<p> First off type this into the terminal </p>
+		<pre><code class="language-bash">
+rake db:create_migration NAME=users
+		</code></pre>
+		<p> Now this will generate a migration file in the folder db/migrations. Open that newly created file with your favorite text editor and make sure it looks like the following </p>
+		<pre><code class="language-ruby">
+<%= h	'def change
+	create_table :users do |t|
+		t.string :username
+		t.string :email
+		t.string :password_salt
+		t.string :password_hash
+	end
+end' %>
+		</code></pre>
+		<p> So here we are defining the change method. Its what is the migration calles when we are migrating or rolling back. In this case we are creating a new table called users with the following 4 strings.</p>
+		<ul>
+			<li> username </li>
+			<li> email </li>
+			<li> password_salt</li>
+			<li> password_hash</li>
+		</ul>
+		<p> The strings holding a user's email and username should be self explainatory but you might be confused by salt and hash. This so we can apply a little encryption to our users passwords. Things like Passwords and Bankaccounts should never be saved as raw strings because if your database is ever compromised then you've just leaked all of this private sensitive data. Instead you should always apply some form of encrypt to them. In this tutorial we will be using BCrypt which uses a hash and salt encryption. We will use these two variables to retrieve the users true password.</p>
+		<p> One little note: You might be confused by the lack of an id column. This is because Activerecord builds on automatically. However if you are interested in using a different primary key or use a none integer based key system then you can check out the Activerecord documentation. I know they support these functionality but I don't intend to introduce it in this tutorial as it is unnecessary and will only confuse true beginners to web development and database management. </p>
+		<p> Now to build this table we run this command in our terminal </p>
+		<pre><code class="language-bash"> rake db:migrate </code></pre>
+		<p> If things work correctly you should be greeted with a print out that says the table users was created</p>
+		<p> Next up we need to build a way for our users to signup and log in</p>
+		<p> So first go back to your Gemfile and add </p>
+		<code class="language-ruby"> gem 'bcrypt' </code>
+		<p> and run bundle install. Now lets build ourselves a log in/sign up page </p>
+		<p> Next go to app.rb and add the following four routes</p>
+		<pre><code></code></pre>
+	 	<p> Now test it to make sure it works. Sign up and go to the greetings page and sign out and try logging in. Did you make it to the same greetings page?</p>
+		<p> Awesome now we can move onto the next thing. I've decided that today we are going to something along the lines of Reddit but ours will have gifs to make it more interesting.</p>
+		<p> So to build such an application we will need Users(check), Posts and Comments. Posts will be the root thread with an initial comment and author. Comment will then hold a parent comment as well as author, datamessage and a gif_url.</p>
+		
+		</div>
  	</div>
  	<div class="col-sm-1 col-md-2"></div>
  </div>
