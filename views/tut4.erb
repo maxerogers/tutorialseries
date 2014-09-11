@@ -105,20 +105,41 @@ end</code></pre>
 
 		<p> IF you look at your app.rb routes now...you might notice something a little off. Why are your route methods returning these HUGE Strings</p>
 		<p> You must be wondering if there is an easier way to manage your html/css. There is using erb. Erb is just short for Embed RuBy. It allows you to add ruby logic and variables directly into your html</p>
+		<h3> ERB </h3>
+		<p> To get started using ERB lets make a new folder called 'views' and inside of it make a new file called 'form.erb'. Now fill it with the following</p>
+		<%# I couldn't add the erb tag without throwing an error so i found this work around, It know its not pretty but....what can you do%>
+		<pre><code class="language-markup">
 
-		<p> To get started using ERB lets make a new folder called 'views' and inside of it make a new file called 'index.erb'. Now fill it with the following</p>
-		<pre><code><%= h'' %></code></pre>
-
+<%= h '<h3>Data: '%><%%= @data %><%= h '</h3>
+<form action="/form">
+  <input type="text" name="data">
+  <input type="submit" value="submit">
+</form>'%>
+	</code></pre>
+		<p> <%%= variable %> </p>
 		<p> Next replace your old routes with these new routes </p>
-		<pre><code class="language-ruby"></code></pre>
+		<pre><code class="language-ruby">get "/form" do
+	puts "GET"
+  @data = ""
+	erb :form
+end
+post "/form" do
+	puts "POST"
+	puts params.inspect
+  @data = params[:data]
+	erb :form
+end</code></pre>
+		<p> The erb file will search out a file with that name (file in this case) in views and print it out.</p>
+		<p> Oh another new thing is the use of the @data variable. This is a local variable for this route return. It allows you to insert data into the html. The @ is the same as self. but ruby has a short hand symbol for that since its used so often. self == this (for those from a java background)</p>
+		<p> In erb there is a new special tag . It is the ruby tag, here you can insert ruby logic directly into your html -- Conditions, for loops, the works. Also if you add = it will also print it out as we are in this case with the @data variable</p>
 		<p> Much clearer don't you agree? </p>
 		<p> Now this is good and dandy for now but we want to have a true persisting backend. </p>
-		<p> To implement this we will need to setup a database server to enable our persistence as well as establish an ORM.</p>
+		<p> To implement this we will need to setup a database server to save our data as well as establish an ORM.</p>
 		<p> In this tutorial we will be using SQLite3 as our database and Sinatra-ActiveRecord as our ORM. I choose these two because SQLite3 is the easiest to install as it requires no additional software or plugins than just the gem. Sinatra-Activerecord is a port of Rails Activerecord ORM and DB migration system. There are other options out there but I feel Activerecord is the clearest and most useful to learn.</p>
 		<p> To make your life easier I have built a little git repo for you to start </p>
 		<!-- Insert Git Repo here-->
-		<p> If you don't understand how to use Git feel free to look at <a href="">Tutorial 0</a>. However, for the lazy and uninterested you can simply download the repo as a .zip. </p>
-		<p> In the repo you will find a couple different files [app.rb, config.ru, Gemfile, Rakefile] and folers [db, views, public]</p>
+		<p> If you don't understand how to use Git feel free to look at <a href="/tut0">Tutorial 0</a>. However, for the lazy and uninterested you can simply download the repo as a .zip. </p>
+		<p> In the repo you will find a couple different files [app.rb, config.ru, Gemfile, Rakefile] and folders [db, views, public]</p>
 		<p> I will now explain the purpose of each one and tell you what to add in each</p>
 		<p> First lets talk about the Gemfile. The Gemfile as you probably could have guessed is used to maintain Gem dependencies. Here you can declare what version a gem should be and where the source is. This helps alot when working with a team as everyone's computers may be on different OSes and have different version of gem X installed. Gemfiles just make this whole process a lot easier. Now insert the following into Gemfile </p>
 		<pre><code class="language-ruby">
@@ -132,7 +153,7 @@ gem 'sqlite3'" %>
 		<p> Awesome now in the terminal run </p>
 		<pre><code class="language-bash"> bundle install </code></pre>
 		<p> Bundler will run through your gem file and make sure the appropiate gem libraries are installed.</p>
-		<p> Next thing we need to set up is the Rakefile. Rake is a middleware for Ruby like what ANT and Maven is to Java. For those unclear, a simple way to understand Middlewares are what handles the transactions between libraries. They are the middle men or diplomats as it were.</p>
+		<p> Next thing we need to set up is the Rakefile. Rake is a middleware for Ruby like what ANT and Maven is to Java. For those unclear, a simple way to understand Middlewares is that they are what handles the transactions between libraries. They are the middle men or diplomats as it were.</p>
 		<pre><code class="language-ruby"> <%= h "require './app'
 require 'sinatra/activerecord/rake'"
 		%></code></pre>
@@ -168,14 +189,14 @@ end' %>
 		<p> If things work correctly you should be greeted with a print out that says the table users was created</p>
 		<p> Next up we need to build a way for our users to signup and log in</p>
 		<p> So first go back to your Gemfile and add </p>
-		<code class="language-ruby"> gem 'bcrypt' </code>
+		<pre><code class="language-ruby"> gem 'bcrypt' </code></pre>
 		<p> and run bundle install. Now lets build ourselves a log in/sign up page </p>
 		<p> Next go to app.rb and add the following four routes</p>
 		<pre><code></code></pre>
 	 	<p> Now test it to make sure it works. Sign up and go to the greetings page and sign out and try logging in. Did you make it to the same greetings page?</p>
-		<p> Awesome now we can move onto the next thing. I've decided that today we are going to something along the lines of Reddit but ours will have gifs to make it more interesting.</p>
-		<p> So to build such an application we will need Users(check), Posts and Comments. Posts will be the root thread with an initial comment and author. Comment will then hold a parent comment as well as author, datamessage and a gif_url.</p>
-		
+		<p> Awesome now we can move onto the next thing. I've decided that today we are going to make something along the lines of Reddit but ours will have gifs to make it more interesting.</p>
+		<p> So to build such an application we will need Users(check), Posts and Comments. Posts will be the root thread with an initial comment and author. Comment will then hold a reference to a parent comment as well as author(user reference), datamessage(string) and a gif_url(string).</p>
+		<p> Now lets build a new migration to add the 2 new tables </p>
 		</div>
  	</div>
  	<div class="col-sm-1 col-md-2"></div>
